@@ -24,7 +24,7 @@ Whether you're preparing for your first front-end interview or looking to refres
 - Practice implementing the concepts in your own code
 - Contribute by adding new questions or improving existing answers
 
-## ✅ Table of Contents
+## Table of Contents
 
 | No. | Questions                                                                                                                                            |
 | --- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -52,3 +52,92 @@ Whether you're preparing for your first front-end interview or looking to refres
 ---
 
 Would you like me to begin writing detailed answers for each question as well?
+
+## 1. What is the difference between classes and IDs in CSS?
+
+**Classes (`.class`)** and **IDs (`#id`)** are both selectors in CSS used to apply styles to HTML elements, but they serve different purposes and have different rules.
+
+---
+
+#### 🔹 1. **Syntax**
+
+- **Class:** Starts with a dot (`.`)
+  ```css
+  .button {
+    background-color: blue;
+  }
+  ```
+- **ID:** Starts with a hash (`#`)
+  ```css
+  #submit {
+    background-color: green;
+  }
+  ```
+
+---
+
+#### 🔹 2. **Usage**
+
+- **Class:** Can be reused on **multiple elements**.
+  ```html
+  <div class="box"></div>
+  <p class="box"></p>
+  ```
+- **ID:** Should be **unique** per page — only **one element** should have a given ID.
+  ```html
+  <div id="header"></div>
+  ```
+
+---
+
+#### 🔹 3. **Specificity**
+
+- **IDs** have **higher specificity** than classes.
+
+  - If both a class and ID target the same element, the ID’s styles will apply.
+
+  ```css
+  .box {
+    color: red;
+  }
+
+  #box {
+    color: blue;
+  }
+  ```
+
+  ```html
+  <div id="box" class="box">Text</div>
+  <!-- Will be blue -->
+  ```
+
+---
+
+#### 🔹 4. **JavaScript Access**
+
+- **ID:**
+  ```js
+  document.getElementById("header");
+  ```
+- **Class:**
+  ```js
+  document.querySelector(".button");
+  document.getElementsByClassName("button");
+  ```
+
+---
+
+#### ✅ Summary Table
+
+| Feature     | Class (`.class`)                             | ID (`#id`)       |
+| ----------- | -------------------------------------------- | ---------------- |
+| Syntax      | `.classname`                                 | `#idname`        |
+| Reusability | Can be used multiple times                   | Should be unique |
+| Specificity | Lower                                        | Higher           |
+| JavaScript  | `getElementsByClassName`, `querySelectorAll` | `getElementById` |
+
+---
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
