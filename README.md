@@ -141,3 +141,129 @@ Would you like me to begin writing detailed answers for each question as well?
 <div align="right">
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
+
+## 2. What is specificity and how does it work in CSS?
+
+**Specificity** in CSS determines which styles are applied to an element when multiple conflicting rules target the same element. It is a scoring system that calculates how "specific" a selector is, and the more specific a selector, the higher its priority in applying styles.
+
+#### 🔹 **Specificity Calculation**
+
+Specificity is calculated based on four parts:
+
+1. **Inline styles** (highest priority)
+2. **IDs**
+3. **Classes, attributes, and pseudo-classes**
+4. **Elements and pseudo-elements** (lowest priority)
+
+---
+
+#### 🔹 **How Specificity is Measured**
+
+Specificity is often represented as a four-part value:
+
+- **Inline styles**: Represented by a value like `a=1`
+- **ID selectors**: Represented by a value like `b=1`
+- **Class selectors, pseudo-classes, and attribute selectors**: Represented by `c=1`
+- **Element selectors and pseudo-elements**: Represented by `d=1`
+
+Each part of the selector contributes to its specificity score. Here’s how it works:
+
+| Selector Type      | Specificity Calculation |
+| ------------------ | ----------------------- |
+| Inline styles      | `1, 0, 0, 0`            |
+| ID selector        | `0, 1, 0, 0`            |
+| Class selector     | `0, 0, 1, 0`            |
+| Element selector   | `0, 0, 0, 1`            |
+| Multiple selectors | Sum of individual parts |
+
+For example:
+
+- **`#header`** has a specificity of `0, 1, 0, 0` (one ID).
+- **`.nav`** has a specificity of `0, 0, 1, 0` (one class).
+- **`div`** has a specificity of `0, 0, 0, 1` (one element).
+
+---
+
+#### 🔹 **How Does It Work?**
+
+1. When two conflicting CSS rules apply to the same element, the browser checks their specificity.
+2. The rule with the **higher specificity** wins and overrides the other.
+3. If two rules have the same specificity, the rule that appears last in the stylesheet wins (this is called the **cascade**).
+
+---
+
+#### 🔹 **Examples**
+
+1. **Element selector vs Class selector:**
+
+   ```css
+   p {
+     color: red; /* Specificity: 0, 0, 0, 1 */
+   }
+
+   .text {
+     color: blue; /* Specificity: 0, 0, 1, 0 */
+   }
+   ```
+
+   Here, `.text` will apply because classes have higher specificity than element selectors.
+
+2. **Class selector vs ID selector:**
+
+   ```css
+   .header {
+     font-size: 20px; /* Specificity: 0, 0, 1, 0 */
+   }
+
+   #main-header {
+     font-size: 30px; /* Specificity: 0, 1, 0, 0 */
+   }
+   ```
+
+   In this case, `#main-header` will win because IDs have higher specificity than classes.
+
+---
+
+#### 🔹 **Important Notes**
+
+- **Inline styles**: If an element has an inline style (e.g., `style="color: green;"`), it will override any styles in the external stylesheet because it has the highest specificity (`1, 0, 0, 0`).
+
+  Example:
+
+  ```html
+  <div id="header" style="color: green;">Hello</div>
+  ```
+
+- **The Universal Selector (`*`)**: The universal selector (`*`) has the lowest specificity (`0, 0, 0, 0`) and is often overridden by other selectors.
+
+  Example:
+
+  ```css
+  * {
+    color: yellow;
+  }
+
+  .highlight {
+    color: blue; /* This will apply because of higher specificity */
+  }
+  ```
+
+---
+
+#### ✅ **Summary Table**
+
+| Selector Type      | Specificity Example | Specificity Value |
+| ------------------ | ------------------- | ----------------- |
+| Inline styles      | `<div style="...">` | `1, 0, 0, 0`      |
+| ID selector        | `#header`           | `0, 1, 0, 0`      |
+| Class selector     | `.nav`              | `0, 0, 1, 0`      |
+| Attribute selector | `[type="text"]`     | `0, 0, 1, 0`      |
+| Element selector   | `div`               | `0, 0, 0, 1`      |
+
+---
+
+Specificity is essential to understand in CSS to avoid unexpected results in your styling. By using it wisely, you can ensure your styles apply as intended.
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
