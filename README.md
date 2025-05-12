@@ -267,3 +267,104 @@ Specificity is essential to understand in CSS to avoid unexpected results in you
 <div align="right">
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
+
+## 3. What is the Box Model in CSS?
+
+The **CSS Box Model** is the fundamental concept used to understand how elements are rendered on a web page. Every HTML element is considered a rectangular box, and the box model describes how the element’s size is calculated and how its space is occupied, including padding, borders, and margins.
+
+---
+
+### 🧱 **Box Model Structure**
+
+The box model consists of the following parts (from innermost to outermost):
+
+```
++-------------------------------+
+|          Margin               |
+|  +------------------------+   |
+|  |        Border          |   |
+|  |  +------------------+  |   |
+|  |  |     Padding       |  |  |
+|  |  |  +------------+   |  |  |
+|  |  |  |  Content    |   |  |  |
+|  |  |  +------------+   |  |  |
+|  |  +------------------+  |  |
+|  +------------------------+  |
++-------------------------------+
+```
+
+---
+
+### 🔹 1. **Content**
+
+- The actual text, image, or other content of the element.
+- You can control the width and height using `width` and `height` properties.
+
+### 🔹 2. **Padding**
+
+- The space **between the content and the border**.
+- It increases the clickable or visible area inside an element.
+- Controlled using `padding`, `padding-top`, `padding-right`, etc.
+
+### 🔹 3. **Border**
+
+- The line surrounding the padding (and content).
+- Controlled using `border`, `border-width`, `border-style`, `border-color`.
+
+### 🔹 4. **Margin**
+
+- The space **outside the border** that separates the element from others.
+- Controlled using `margin`, `margin-top`, `margin-right`, etc.
+
+---
+
+### 🧮 **Box Model Calculation**
+
+By default (`box-sizing: content-box`):
+
+```plaintext
+Element Total Width  = content width + left/right padding + left/right border + left/right margin
+Element Total Height = content height + top/bottom padding + top/bottom border + top/bottom margin
+```
+
+For example:
+
+```css
+width: 200px;
+padding: 10px;
+border: 2px solid black;
+margin: 5px;
+```
+
+Total width = 200 + 10 + 10 + 2 + 2 + 5 + 5 = **234px**
+
+---
+
+### 🔁 `box-sizing` Property
+
+You can change how the box model is calculated using `box-sizing`:
+
+- **`content-box`** (default): Width/height includes _only_ the content.
+- **`border-box`**: Width/height includes _content + padding + border_.
+
+Example:
+
+```css
+* {
+  box-sizing: border-box;
+}
+```
+
+This is commonly used to make layout calculations easier and more predictable.
+
+---
+
+### ✅ **Why It Matters**
+
+- Understanding the box model helps prevent layout issues.
+- It’s essential when positioning, aligning, or sizing elements.
+- Affects responsive design, spacing, and performance.
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
