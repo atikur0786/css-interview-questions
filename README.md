@@ -368,3 +368,98 @@ This is commonly used to make layout calculations easier and more predictable.
 <div align="right">
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
+
+## 4. What are Pseudo-Classes and Pseudo-Elements in CSS?
+
+**Pseudo-classes** and **pseudo-elements** are powerful CSS features that allow you to style elements based on their state or to target parts of elements that are not explicitly in the DOM.
+
+---
+
+## 🔹 Pseudo-Classes
+
+A **pseudo-class** is used to define the **special state of an element**—such as when it’s hovered, visited, or its position among siblings.
+
+### ✅ Common Pseudo-Classes:
+
+| Pseudo-Class     | Description                                              |
+| ---------------- | -------------------------------------------------------- |
+| `:hover`         | Applies styles when the user hovers over an element      |
+| `:focus`         | Applies styles when the element is focused (e.g., input) |
+| `:visited`       | Applies to links that have been visited                  |
+| `:nth-child(n)`  | Selects the nth child of a parent                        |
+| `:first-child`   | Selects the first child of a parent                      |
+| `:last-child`    | Selects the last child of a parent                       |
+| `:checked`       | Applies to checked checkboxes or radio buttons           |
+| `:disabled`      | Applies to disabled form elements                        |
+| `:not(selector)` | Selects elements that do **not** match a selector        |
+
+### 🔍 Example:
+
+```css
+button:hover {
+  background-color: blue;
+  color: white;
+}
+
+li:nth-child(2) {
+  color: red;
+}
+```
+
+---
+
+## 🔸 Pseudo-Elements
+
+A **pseudo-element** allows you to **style specific parts of an element** without adding additional HTML.
+
+### ✅ Common Pseudo-Elements:
+
+| Pseudo-Element   | Description                                            |
+| ---------------- | ------------------------------------------------------ |
+| `::before`       | Inserts content before the content of the element      |
+| `::after`        | Inserts content after the content of the element       |
+| `::first-line`   | Targets the first line of a block of text              |
+| `::first-letter` | Targets the first letter of a block of text            |
+| `::selection`    | Targets the portion of an element selected by the user |
+| `::placeholder`  | Styles the placeholder text in input fields            |
+
+### 🔍 Example:
+
+```css
+p::first-line {
+  font-weight: bold;
+}
+
+h1::before {
+  content: "🔥 ";
+}
+
+input::placeholder {
+  color: gray;
+  font-style: italic;
+}
+```
+
+---
+
+## 🔑 Key Differences
+
+| Feature | Pseudo-Class                  | Pseudo-Element                             |
+| ------- | ----------------------------- | ------------------------------------------ |
+| Targets | Element state or relationship | Part of an element’s content               |
+| Syntax  | Uses a single colon `:`       | Uses two colons `::` (CSS3 recommendation) |
+| Example | `a:hover`, `li:first-child`   | `p::first-line`, `h1::after`               |
+
+> Note: Older browsers may still support pseudo-elements with a single colon (`:before`, `:after`), but `::` is the modern standard.
+
+---
+
+### 🧠 Summary
+
+- **Pseudo-classes** = _Dynamic states_ (hover, focus, nth-child, etc.)
+- **Pseudo-elements** = _Parts of elements_ (before, after, first-letter, etc.)
+- Together, they make CSS much more expressive without needing extra HTML markup.
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
