@@ -463,3 +463,113 @@ input::placeholder {
 <div align="right">
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
+
+## 5. How Does `position` Work in CSS?
+
+The `position` property in CSS defines how an element is positioned in a document. It also determines how its `top`, `right`, `bottom`, and `left` properties affect its placement.
+
+---
+
+### 🔹 1. `static` (Default)
+
+- This is the **default** position for every element.
+- The element is positioned according to the normal **document flow**.
+- **`top`, `right`, `bottom`, `left` have no effect.**
+
+```css
+div {
+  position: static;
+}
+```
+
+---
+
+### 🔹 2. `relative`
+
+- The element is positioned **relative to its normal position**.
+- Offsets with `top`, `left`, etc., will **move the element**, but **it still takes up its original space**.
+
+```css
+div {
+  position: relative;
+  top: 20px; /* Moves the element 20px down */
+  left: 10px; /* Moves the element 10px to the right */
+}
+```
+
+---
+
+### 🔹 3. `absolute`
+
+- The element is positioned **relative to the nearest positioned ancestor** (anything not `static`).
+- If no such ancestor exists, it will be **relative to the `<html>` (viewport)**.
+- It is **removed from the normal document flow** (doesn’t take up space).
+
+```css
+div {
+  position: absolute;
+  top: 50px;
+  left: 100px;
+}
+```
+
+---
+
+### 🔹 4. `fixed`
+
+- The element is **fixed to the viewport** and does **not move** when the page is scrolled.
+- Commonly used for headers, footers, or floating buttons.
+
+```css
+div {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+}
+```
+
+---
+
+### 🔹 5. `sticky` (Hybrid)
+
+- The element **behaves like `relative`** until it hits a scroll threshold, then it **sticks** like `fixed`.
+- Requires a `top`, `left`, etc., to trigger the sticking.
+- Must have a scrollable parent.
+
+```css
+div {
+  position: sticky;
+  top: 0;
+}
+```
+
+---
+
+### 🔁 Summary Table
+
+| Value      | Relative to                             | Stays in flow?       | Scrolls with page? | Notes                                               |
+| ---------- | --------------------------------------- | -------------------- | ------------------ | --------------------------------------------------- |
+| `static`   | Normal flow                             | ✅ Yes               | ✅ Yes             | Default value                                       |
+| `relative` | Itself (normal pos)                     | ✅ Yes               | ✅ Yes             | Moves visually, keeps space                         |
+| `absolute` | Nearest positioned ancestor or viewport | ❌ No                | ❌ No              | Great for dropdowns, tooltips                       |
+| `fixed`    | Viewport                                | ❌ No                | ❌ No              | Always visible; use for sticky navbars/buttons      |
+| `sticky`   | Scroll container                        | ✅ Yes (until stuck) | Depends            | Good for headers that should stay visible on scroll |
+
+---
+
+### 📌 Visual Example
+
+You might imagine a sticky header like this:
+
+```css
+header {
+  position: sticky;
+  top: 0;
+  background: white;
+  z-index: 100;
+}
+```
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
