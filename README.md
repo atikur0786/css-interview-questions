@@ -33,7 +33,7 @@ Whether you're preparing for your first front-end interview or looking to refres
 | 3   | [What is the Box Model in CSS?](#3-what-is-the-box-model-in-css)                                                                                     |
 | 4   | [What are pseudo-classes and pseudo-elements in CSS?](#4-what-are-pseudo-classes-and-pseudo-elements-in-css)                                         |
 | 5   | [How does position work in CSS (static, relative, absolute, fixed, sticky)?](#5-how-does-position-work-in-css)                                       |
-| 6   | [What is the difference between em, rem, %, px, and vh/vw units?](#6-what-is-the-difference-between-em-rem-and-other-units)                          |
+| 6   | [What is the difference between em, rem, %, px, and vh/vw units?](#6-what-is-the-difference-between-em-rem--px-and-vhvw-units-in-css)                |
 | 7   | [How does z-index work in CSS?](#7-how-does-z-index-work-in-css)                                                                                     |
 | 8   | [What is the difference between inline, block, and inline-block elements?](#8-what-is-the-difference-between-inline-block-and-inline-block-elements) |
 | 9   | [How do CSS Grid and Flexbox differ? When should you use each?](#9-how-do-css-grid-and-flexbox-differ)                                               |
@@ -567,6 +567,119 @@ header {
   top: 0;
   background: white;
   z-index: 100;
+}
+```
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
+
+## 6. What is the Difference Between `em`, `rem`, `%`, `px`, and `vh`/`vw` Units in CSS?
+
+CSS offers multiple **unit types** for defining sizes (like font size, padding, width, etc.), and choosing the right one affects **responsiveness, maintainability, and consistency**.
+
+---
+
+### ✅ Absolute vs Relative Units
+
+| Type         | Units                        | Description                         |
+| ------------ | ---------------------------- | ----------------------------------- |
+| **Absolute** | `px`, `pt`, `cm`, `mm`, etc. | Fixed size, doesn’t scale           |
+| **Relative** | `em`, `rem`, `%`, `vh`, `vw` | Size depends on context/environment |
+
+---
+
+### 📏 1. `px` – Pixels (Absolute Unit)
+
+- **Fixed unit** – does not scale with parent or root.
+- Best used for **precise control** but lacks responsiveness.
+
+```css
+font-size: 16px;
+```
+
+🔸 **Pros**: Predictable  
+🔸 **Cons**: Not scalable; not responsive to screen size or accessibility settings.
+
+---
+
+### 🔠 2. `em` – Relative to Parent Element
+
+- 1 `em` equals the **font size of the current element's parent**.
+- Multiplies if nested (can lead to unintended growth).
+
+```css
+font-size: 2em; /* 2 times the parent's font size */
+```
+
+🔸 **Common use**: Spacing, padding, font sizes.  
+🔸 **Watch out**: In deeply nested elements, sizes can **compound**.
+
+---
+
+### 🧩 3. `rem` – Relative to Root Element (`html`)
+
+- 1 `rem` equals the **font size of the `<html>` element**.
+- Safer than `em` for consistent scaling across components.
+
+```css
+font-size: 1.5rem; /* 1.5 times the root font size */
+```
+
+🔸 **Great for**: Scalable and consistent design systems.  
+🔸 **Common base**: `html { font-size: 16px; }`
+
+---
+
+### 📐 4. `%` – Percentage
+
+- Depends on the **parent element’s dimension** (for width, height, font-size, etc.).
+
+```css
+width: 50%; /* Half of the parent’s width */
+font-size: 120%; /* 120% of parent font size */
+```
+
+🔸 **Responsive** but relative to parent container.  
+🔸 **Context-sensitive** – behaves differently based on the property.
+
+---
+
+### 📱 5. `vh` / `vw` – Viewport Height / Width
+
+- `1vh` = 1% of **viewport height**, `1vw` = 1% of **viewport width**.
+- Useful for full-screen layouts, responsive sections.
+
+```css
+height: 100vh; /* Full height of the screen */
+width: 100vw; /* Full width of the screen */
+```
+
+🔸 **Perfect for**: Modals, full-screen sections, hero banners.  
+🔸 **Watch out**: On mobile browsers, can be affected by browser UI.
+
+---
+
+### 🔁 Summary Table
+
+| Unit  | Relative To             | Best Used For                | Notes                                |
+| ----- | ----------------------- | ---------------------------- | ------------------------------------ |
+| `px`  | Fixed size              | Precise spacing, borders     | Not responsive                       |
+| `em`  | Parent’s font-size      | Component-relative sizing    | Can compound in nested elements      |
+| `rem` | Root (`html`) font-size | Global consistency           | Predictable, scalable design systems |
+| `%`   | Parent element          | Width, height, font scaling  | Context-dependent                    |
+| `vh`  | Viewport height         | Full-height sections, modals | 100vh = full screen height           |
+| `vw`  | Viewport width          | Full-width layouts           | 100vw = full screen width            |
+
+---
+
+### ✅ Pro Tip:
+
+Set base font size on `html` using `px`, then use `rem` throughout for scalable, accessible UI.
+
+```css
+html {
+  font-size: 16px; /* 1rem = 16px */
 }
 ```
 
