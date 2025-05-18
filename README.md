@@ -686,3 +686,116 @@ html {
 <div align="right">
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
+
+## 7. How Does `z-index` Work in CSS?
+
+The `z-index` property in CSS controls the **stacking order** of elements **along the Z-axis** (front to back). It determines which element appears **in front of** or **behind** others when they overlap.
+
+---
+
+### 🔢 Basic Concept
+
+- Elements with **higher `z-index` values** are displayed **on top** of elements with lower values.
+- The default value is `auto` (treated as `0` unless specified).
+- **Only works on positioned elements** (`position: relative`, `absolute`, `fixed`, or `sticky`).
+
+```css
+.element1 {
+  position: absolute;
+  z-index: 1;
+}
+
+.element2 {
+  position: absolute;
+  z-index: 2; /* This will appear on top of .element1 */
+}
+```
+
+---
+
+### 🧱 Stack Context
+
+A **stacking context** is formed when an element meets certain conditions, such as:
+
+- It has a `position` and a `z-index` other than `auto`.
+- It has `opacity < 1`, `transform`, `filter`, `perspective`, `clip-path`, etc.
+
+**Each stacking context is independent**, so `z-index` only compares elements within the **same context**.
+
+```css
+.parent {
+  position: relative;
+  z-index: 10; /* Creates a stacking context */
+}
+
+.child {
+  position: relative;
+  z-index: 9999; /* Only highest within this parent, not the page */
+}
+```
+
+---
+
+### 🧠 z-index in Layers
+
+Imagine layers of paper stacked on a table:
+
+```
+z-index: 3   ⬅️ Top layer
+z-index: 2
+z-index: 1
+z-index: 0   ⬅️ Default layer
+```
+
+---
+
+### ⚠️ Common Gotchas
+
+- `z-index` **does not work** on statically positioned elements (`position: static`).
+- Nesting a high `z-index` element inside a low `z-index` stacking context **limits visibility**.
+- Overuse can cause **unexpected overlaps**—manage with minimal and meaningful values.
+
+---
+
+### ✅ Best Practices
+
+- Use `z-index` sparingly and intentionally.
+- Try to **keep values small** (`1`, `10`, `100`) rather than `9999`.
+- Understand and isolate **stacking contexts** for complex UI.
+
+---
+
+### 🧪 Example
+
+```html
+<div class="box red"></div>
+<div class="box blue"></div>
+```
+
+```css
+.box {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+}
+
+.red {
+  background: red;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.blue {
+  background: blue;
+  top: 20px;
+  left: 20px;
+  z-index: 2; /* This will be on top */
+}
+```
+
+---
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
