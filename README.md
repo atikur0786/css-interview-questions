@@ -26,28 +26,28 @@ Whether you're preparing for your first front-end interview or looking to refres
 
 ## Table of Contents
 
-| No. | Questions                                                                                                                                            |
-| --- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 1   | [What is the difference between classes and IDs in CSS?](#1-what-is-the-difference-between-classes-and-ids-in-css)                                   |
-| 2   | [What is specificity and how does it work in CSS?](#2-what-is-specificity-and-how-does-it-work-in-css)                                               |
-| 3   | [What is the Box Model in CSS?](#3-what-is-the-box-model-in-css)                                                                                     |
-| 4   | [What are pseudo-classes and pseudo-elements in CSS?](#4-what-are-pseudo-classes-and-pseudo-elements-in-css)                                         |
-| 5   | [How does position work in CSS (static, relative, absolute, fixed, sticky)?](#5-how-does-position-work-in-css)                                       |
-| 6   | [What is the difference between em, rem, %, px, and vh/vw units?](#6-what-is-the-difference-between-em-rem--px-and-vhvw-units-in-css)                |
-| 7   | [How does z-index work in CSS?](#7-how-does-z-index-work-in-css)                                                                                     |
-| 8   | [What is the difference between inline, block, and inline-block elements?](#8-what-is-the-difference-between-inline-block-and-inline-block-elements) |
-| 9   | [How do CSS Grid and Flexbox differ? When should you use each?](#9-how-do-css-grid-and-flexbox-differ)                                               |
-| 10  | [What are media queries and how do you use them?](#10-what-are-media-queries-and-how-do-you-use-them)                                                |
-| 11  | [What are the different types of CSS (inline, internal, external)?](#11-what-are-the-different-types-of-css)                                         |
-| 12  | [How does inheritance work in CSS?](#12-how-does-inheritance-work-in-css)                                                                            |
-| 13  | [What are the different combinators in CSS?](#13-what-are-the-different-combinators-in-css)                                                          |
-| 14  | [What is the difference between visibility: hidden and display: none?](#14-what-is-the-difference-between-visibility-hidden-and-display-none)        |
-| 15  | [What are CSS transitions and animations?](#15-what-are-css-transitions-and-animations)                                                              |
-| 16  | [How do you center a div horizontally and vertically?](#16-how-do-you-center-a-div-horizontally-and-vertically)                                      |
-| 17  | [What are the benefits of using CSS variables (custom properties)?](#17-what-are-the-benefits-of-using-css-variables)                                |
-| 18  | [What are the most common browser compatibility issues in CSS?](#18-what-are-the-most-common-browser-compatibility-issues-in-css)                    |
-| 19  | [What is the difference between min-width, max-width, and width?](#19-what-is-the-difference-between-min-width-max-width-and-width)                  |
-| 20  | [What is specificity hierarchy and how to override styles correctly?](#20-what-is-specificity-hierarchy-and-how-to-override-styles-correctly)        |
+| No. | Questions                                                                                                                                                          |
+| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| 1   | [What is the difference between classes and IDs in CSS?](#1-what-is-the-difference-between-classes-and-ids-in-css)                                                 |
+| 2   | [What is specificity and how does it work in CSS?](#2-what-is-specificity-and-how-does-it-work-in-css)                                                             |
+| 3   | [What is the Box Model in CSS?](#3-what-is-the-box-model-in-css)                                                                                                   |
+| 4   | [What are pseudo-classes and pseudo-elements in CSS?](#4-what-are-pseudo-classes-and-pseudo-elements-in-css)                                                       |
+| 5   | [How does position work in CSS (static, relative, absolute, fixed, sticky)?](#5-how-does-position-work-in-css)                                                     |
+| 6   | [What is the difference between em, rem, %, px, and vh/vw units?](#6-what-is-the-difference-between-em-rem--px-and-vhvw-units-in-css)                              |
+| 7   | [How does z-index work in CSS?](#7-how-does-z-index-work-in-css)                                                                                                   |
+| 8   | [What is the difference between inline, block, and inline-block elements in CSS?](#8-what-is-the-difference-between-inline-block-and-inline-block-elements-in-css) |
+| 9   | [How do CSS Grid and Flexbox differ? When should you use each?](#9-how-do-css-grid-and-flexbox-differ)                                                             |
+| 10  | [What are media queries and how do you use them?](#10-what-are-media-queries-and-how-do-you-use-them)                                                              |
+| 11  | [What are the different types of CSS (inline, internal, external)?](#11-what-are-the-different-types-of-css)                                                       |
+| 12  | [How does inheritance work in CSS?](#12-how-does-inheritance-work-in-css)                                                                                          |
+| 13  | [What are the different combinators in CSS?](#13-what-are-the-different-combinators-in-css)                                                                        |
+| 14  | [What is the difference between visibility: hidden and display: none?](#14-what-is-the-difference-between-visibility-hidden-and-display-none)                      |
+| 15  | [What are CSS transitions and animations?](#15-what-are-css-transitions-and-animations)                                                                            |
+| 16  | [How do you center a div horizontally and vertically?](#16-how-do-you-center-a-div-horizontally-and-vertically)                                                    |
+| 17  | [What are the benefits of using CSS variables (custom properties)?](#17-what-are-the-benefits-of-using-css-variables)                                              |
+| 18  | [What are the most common browser compatibility issues in CSS?](#18-what-are-the-most-common-browser-compatibility-issues-in-css)                                  |
+| 19  | [What is the difference between min-width, max-width, and width?](#19-what-is-the-difference-between-min-width-max-width-and-width)                                |
+| 20  | [What is specificity hierarchy and how to override styles correctly?](#20-what-is-specificity-hierarchy-and-how-to-override-styles-correctly)                      |
 
 ---
 
@@ -793,6 +793,78 @@ z-index: 0   ⬅️ Default layer
   z-index: 2; /* This will be on top */
 }
 ```
+
+---
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
+
+## 8. What is the Difference Between `inline`, `block`, and `inline-block` Elements in CSS?
+
+These display values control how elements behave in the **layout flow** of a webpage. Understanding them is crucial for structuring and styling HTML effectively.
+
+---
+
+### 🔹 `inline`
+
+- **Does NOT start on a new line**.
+- Only takes up **as much width as necessary**.
+- Cannot set `width` or `height`.
+- Margins and paddings only apply **horizontally** (top/bottom may not push other content).
+
+📌 **Examples**: `<span>`, `<a>`, `<strong>`, `<em>`
+
+```html
+<span>I am inline</span>
+```
+
+---
+
+### 🔸 `block`
+
+- **Starts on a new line** (takes full width by default).
+- Respects `width`, `height`, `margin`, and `padding`.
+- Stacks vertically.
+
+📌 **Examples**: `<div>`, `<p>`, `<h1>` to `<h6>`, `<section>`
+
+```html
+<div>I am block</div>
+```
+
+---
+
+### 🔹 `inline-block`
+
+- Behaves like `inline` in that it **does not break to a new line**, but:
+- **Allows setting** `width`, `height`, `padding`, and `margin`.
+- Useful for styling inline elements with box-like features.
+
+📌 **Common use case**: Buttons, navigation links.
+
+```html
+<span style="display: inline-block; width: 100px;">Styled Inline</span>
+```
+
+---
+
+### 🧪 Visual Comparison
+
+| Property          | `inline`        | `block`        | `inline-block`  |
+| ----------------- | --------------- | -------------- | --------------- |
+| Starts new line   | ❌ No           | ✅ Yes         | ❌ No           |
+| Sets width/height | ❌ No           | ✅ Yes         | ✅ Yes          |
+| Box model support | Partial         | Full           | Full            |
+| Layout direction  | Horizontal flow | Vertical stack | Horizontal flow |
+
+---
+
+### ✅ Use Cases
+
+- Use `inline` for small content inside text (e.g., `<a>`, `<strong>`).
+- Use `block` for sections, layouts, and full-width content.
+- Use `inline-block` when you need an inline element that behaves like a block (e.g., styled buttons).
 
 ---
 
