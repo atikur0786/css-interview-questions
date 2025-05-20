@@ -36,7 +36,7 @@ Whether you're preparing for your first front-end interview or looking to refres
 | 6   | [What is the difference between em, rem, %, px, and vh/vw units?](#6-what-is-the-difference-between-em-rem--px-and-vhvw-units-in-css)                              |
 | 7   | [How does z-index work in CSS?](#7-how-does-z-index-work-in-css)                                                                                                   |
 | 8   | [What is the difference between inline, block, and inline-block elements in CSS?](#8-what-is-the-difference-between-inline-block-and-inline-block-elements-in-css) |
-| 9   | [How do CSS Grid and Flexbox differ? When should you use each?](#9-how-do-css-grid-and-flexbox-differ)                                                             |
+| 9   | [How do CSS Grid and Flexbox differ? When should you use each?](#9-how-do-css-grid-and-flexbox-differ-when-should-you-use-each)                                    |
 | 10  | [What are media queries and how do you use them?](#10-what-are-media-queries-and-how-do-you-use-them)                                                              |
 | 11  | [What are the different types of CSS (inline, internal, external)?](#11-what-are-the-different-types-of-css)                                                       |
 | 12  | [How does inheritance work in CSS?](#12-how-does-inheritance-work-in-css)                                                                                          |
@@ -871,3 +871,90 @@ These display values control how elements behave in the **layout flow** of a web
 <div align="right">
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
+
+## 9. How Do CSS Grid and Flexbox Differ? When Should You Use Each?
+
+CSS **Grid** and **Flexbox** are both powerful layout systems, but they are designed for different use cases. Understanding their differences helps you choose the right tool for structuring layouts.
+
+---
+
+## 🆚 Core Differences
+
+| Feature                | **Flexbox**                         | **Grid**                                                 |
+| ---------------------- | ----------------------------------- | -------------------------------------------------------- |
+| Layout direction       | One-dimensional (row **or** column) | Two-dimensional (rows **and** columns)                   |
+| Content vs. Container  | Content-driven layout               | Container-driven layout                                  |
+| Placement control      | Auto-placement only                 | Precise placement using row/column lines                 |
+| Alignment capabilities | Powerful alignment for items        | Even more control over both axes                         |
+| Overlapping content    | ❌ Not supported                    | ✅ Supported using grid lines                            |
+| Browser support        | Widely supported (IE11+)            | Fully supported (IE11+ partial, full in modern browsers) |
+
+---
+
+## 📐 Flexbox
+
+### ✅ Use When:
+
+- Laying out **items in a row or column**.
+- You need **dynamic sizing and alignment**.
+- You're building a **navbar**, **button group**, **cards**, etc.
+
+### 🔧 Example:
+
+```css
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+```
+
+---
+
+## 🧮 CSS Grid
+
+### ✅ Use When:
+
+- You need to create **complex layouts** (e.g., dashboard, magazine-style).
+- You want **explicit row and column control**.
+- You're building **grids**, **overlapping areas**, or **page sections**.
+
+### 🔧 Example:
+
+```css
+.container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
+}
+```
+
+---
+
+## 🧠 Think of It Like:
+
+- **Flexbox** = Good for **one axis** → flexible **lines**
+- **Grid** = Best for **two axes** → structured **grids**
+
+---
+
+## 🛠 Combined Use
+
+You can use **Flexbox inside Grid**, or vice versa:
+
+- Grid for the **page layout**.
+- Flexbox for **individual components** inside each grid item.
+
+---
+
+## ✅ Summary
+
+| Use Case                       | Use Flexbox | Use Grid |
+| ------------------------------ | ----------- | -------- |
+| Horizontal navigation bar      | ✅          | ❌       |
+| Sidebar + Main + Footer layout | ❌          | ✅       |
+| Equal-width buttons or cards   | ✅          | ✅       |
+| Overlapping content sections   | ❌          | ✅       |
+| Responsive auto-fitting layout | ✅          | ✅       |
+
+---
