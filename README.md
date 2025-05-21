@@ -958,3 +958,118 @@ You can use **Flexbox inside Grid**, or vice versa:
 | Responsive auto-fitting layout | ✅          | ✅       |
 
 ---
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
+
+## 10. What Are Media Queries and How Do You Use Them?
+
+**Media queries** are a feature in CSS that allow you to apply styles based on the **characteristics of the user's device**, such as its screen size, resolution, orientation, or color capability. They are a core part of **responsive web design**.
+
+---
+
+## ✅ Why Use Media Queries?
+
+They allow your web pages to:
+
+- **Adapt** to different screen sizes (e.g., mobile, tablet, desktop).
+- Provide a **better user experience** on all devices.
+- Maintain **design consistency** without needing multiple stylesheets.
+
+---
+
+## 🧱 Syntax
+
+```css
+@media media-type and (condition) {
+  /* CSS rules here */
+}
+```
+
+- `media-type`: Usually `screen`, `print`, or `all`.
+- `condition`: A **media feature** like `max-width`, `min-height`, etc.
+
+---
+
+## 📦 Common Examples
+
+### 🔹 Basic: Adjust layout for mobile
+
+```css
+/* Default desktop styles */
+.container {
+  width: 1000px;
+}
+
+/* Override for screens smaller than 768px */
+@media screen and (max-width: 768px) {
+  .container {
+    width: 100%;
+  }
+}
+```
+
+### 🔹 Multiple conditions
+
+```css
+@media screen and (min-width: 600px) and (max-width: 1024px) {
+  body {
+    font-size: 1.2rem;
+  }
+}
+```
+
+### 🔹 Orientation
+
+```css
+@media (orientation: landscape) {
+  .video {
+    width: 80%;
+  }
+}
+```
+
+---
+
+## 🎯 Common Media Features
+
+| Feature       | Description                       | Example                 |
+| ------------- | --------------------------------- | ----------------------- |
+| `max-width`   | Maximum screen width              | `max-width: 768px`      |
+| `min-width`   | Minimum screen width              | `min-width: 480px`      |
+| `orientation` | Screen orientation                | `orientation: portrait` |
+| `resolution`  | Screen resolution (for retina/HD) | `min-resolution: 2dppx` |
+| `hover`       | Detect if hover capability exists | `hover: hover`          |
+
+---
+
+## 🧠 Best Practices
+
+- **Mobile-first**: Write base styles for mobile, then add media queries for larger screens using `min-width`.
+- Keep breakpoints based on **content needs**, not device types (avoid hardcoding "iPhone" widths).
+- Combine media queries into reusable **SCSS mixins** or utility classes if you're using preprocessors.
+
+---
+
+## 🧪 Example Use Case
+
+```css
+/* Mobile-first styles */
+.navbar {
+  flex-direction: column;
+}
+
+/* Desktop styles */
+@media (min-width: 768px) {
+  .navbar {
+    flex-direction: row;
+  }
+}
+```
+
+---
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
