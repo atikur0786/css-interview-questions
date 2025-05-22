@@ -38,7 +38,7 @@ Whether you're preparing for your first front-end interview or looking to refres
 | 8   | [What is the difference between inline, block, and inline-block elements in CSS?](#8-what-is-the-difference-between-inline-block-and-inline-block-elements-in-css) |
 | 9   | [How do CSS Grid and Flexbox differ? When should you use each?](#9-how-do-css-grid-and-flexbox-differ-when-should-you-use-each)                                    |
 | 10  | [What are media queries and how do you use them?](#10-what-are-media-queries-and-how-do-you-use-them)                                                              |
-| 11  | [What are the different types of CSS (inline, internal, external)?](#11-what-are-the-different-types-of-css)                                                       |
+| 11  | [What are the different types of CSS?](#11-what-are-the-different-types-of-css)                                                                                    |
 | 12  | [How does inheritance work in CSS?](#12-how-does-inheritance-work-in-css)                                                                                          |
 | 13  | [What are the different combinators in CSS?](#13-what-are-the-different-combinators-in-css)                                                                        |
 | 14  | [What is the difference between visibility: hidden and display: none?](#14-what-is-the-difference-between-visibility-hidden-and-display-none)                      |
@@ -1067,6 +1067,126 @@ They allow your web pages to:
   }
 }
 ```
+
+---
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
+
+## 11. What Are the Different Types of CSS?
+
+CSS (Cascading Style Sheets) can be applied to HTML documents in **three primary ways**:
+
+---
+
+## 1. ✅ Inline CSS
+
+**Definition:** CSS styles applied directly to an HTML element using the `style` attribute.
+
+**Example:**
+
+```html
+<p style="color: blue; font-size: 16px;">This is inline CSS.</p>
+```
+
+**Use Case:**
+
+- Useful for **quick fixes** or **dynamic styling via JavaScript**.
+- Not recommended for large-scale styling.
+
+**Pros:**
+
+- High specificity.
+- Immediate effect on the element.
+
+**Cons:**
+
+- Hard to maintain.
+- Violates separation of concerns (structure vs. style).
+- Cannot be reused.
+
+---
+
+## 2. 🧩 Internal CSS (Embedded)
+
+**Definition:** CSS written inside a `<style>` tag within the `<head>` of an HTML document.
+
+**Example:**
+
+```html
+<head>
+  <style>
+    p {
+      color: green;
+    }
+  </style>
+</head>
+<body>
+  <p>This is internal CSS.</p>
+</body>
+```
+
+**Use Case:**
+
+- Good for **single-page styling** or **testing** styles locally.
+
+**Pros:**
+
+- Keeps styles in one place within the HTML.
+- No extra HTTP request needed.
+
+**Cons:**
+
+- Not reusable across multiple pages.
+- Increases HTML file size.
+
+---
+
+## 3. 📦 External CSS
+
+**Definition:** CSS written in a separate `.css` file and linked to the HTML document using the `<link>` tag.
+
+**Example:**
+
+```html
+<head>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+```
+
+**styles.css**
+
+```css
+p {
+  color: red;
+}
+```
+
+**Use Case:**
+
+- Best for **large websites** with multiple pages needing consistent styling.
+
+**Pros:**
+
+- Promotes **code reusability and maintainability**.
+- Separates content from presentation.
+- Can be cached by browsers for better performance.
+
+**Cons:**
+
+- Requires an extra HTTP request.
+- Not ideal for email templates or highly dynamic content.
+
+---
+
+## 🧠 Summary Table
+
+| Type     | Location      | Reusable | Best For                    | Drawbacks                      |
+| -------- | ------------- | -------- | --------------------------- | ------------------------------ |
+| Inline   | In HTML tags  | ❌       | Quick fixes, dynamic styles | Hard to maintain, not reusable |
+| Internal | `<style>` tag | ❌       | One-page styles             | Not reusable across pages      |
+| External | Separate file | ✅       | Full site styling           | Extra HTTP request required    |
 
 ---
 
