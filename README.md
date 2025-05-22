@@ -1193,3 +1193,110 @@ p {
 <div align="right">
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
+
+## 12. How Does Inheritance Work in CSS?
+
+**Inheritance** in CSS refers to the mechanism by which some CSS properties applied to a parent element are automatically **passed down** (inherited) by its child elements.
+
+---
+
+### 🔍 Key Concepts
+
+- **Not all properties are inherited by default.**
+- Inherited properties are typically related to **text and font styling**.
+
+---
+
+### ✅ Commonly Inherited Properties
+
+| Category     | Examples                                                                                                         |
+| ------------ | ---------------------------------------------------------------------------------------------------------------- |
+| Text & Fonts | `color`, `font-family`, `font-size`, `line-height`, `letter-spacing`, `word-spacing`, `text-align`, `visibility` |
+
+---
+
+### ❌ Non-Inherited Properties
+
+Most **box model, layout, and positioning** properties are **not inherited** by default.
+
+| Examples                                                                                            |
+| --------------------------------------------------------------------------------------------------- |
+| `margin`, `padding`, `border`, `width`, `height`, `display`, `position`, `background`, `box-shadow` |
+
+---
+
+### 🔧 Controlling Inheritance
+
+You can explicitly control inheritance using:
+
+#### `inherit`
+
+Forces an element to inherit the value from its parent.
+
+```css
+div {
+  color: inherit;
+}
+```
+
+#### `initial`
+
+Resets the property to its default initial value.
+
+```css
+div {
+  color: initial;
+}
+```
+
+#### `unset`
+
+Resets the property to:
+
+- Inherited value if it's normally inherited
+- Initial value if it's not
+
+```css
+div {
+  color: unset;
+}
+```
+
+---
+
+### 🧪 Example
+
+```html
+<style>
+  body {
+    color: navy;
+    font-family: Arial, sans-serif;
+  }
+  h1 {
+    color: inherit;
+  }
+</style>
+
+<body>
+  <h1>This text will be navy and Arial.</h1>
+</body>
+```
+
+In this example:
+
+- `body` sets the color and font-family.
+- `h1` inherits the color from `body` because we used `color: inherit`.
+
+---
+
+### 🧠 Summary
+
+- CSS inheritance mimics real-world inheritance: child elements inherit styles from parents.
+- Only certain properties (mainly text-related) are inherited by default.
+- You can explicitly **control** inheritance with `inherit`, `initial`, and `unset`.
+
+---
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
