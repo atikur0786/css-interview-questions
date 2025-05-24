@@ -1300,3 +1300,92 @@ In this example:
 <div align="right">
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
+
+## 13. What Are the Different Combinators in CSS?
+
+**Combinators** in CSS define relationships between selectors. They allow you to apply styles to elements **based on their relationship** to other elements in the DOM tree.
+
+There are **4 main combinators** in CSS:
+
+---
+
+### 1. **Descendant Combinator (`space`)**
+
+**Syntax**: `A B`
+**Selects** all elements `B` that are **descendants** (children, grandchildren, etc.) of element `A`.
+
+```css
+div p {
+  color: blue;
+}
+```
+
+> Selects all `<p>` elements inside any `<div>`.
+
+---
+
+### 2. **Child Combinator (`>`)**
+
+**Syntax**: `A > B`
+**Selects** all elements `B` that are **direct children** of element `A`.
+
+```css
+ul > li {
+  list-style-type: square;
+}
+```
+
+> Only styles `<li>` elements that are **immediate children** of `<ul>`.
+
+---
+
+### 3. **Adjacent Sibling Combinator (`+`)**
+
+**Syntax**: `A + B`
+**Selects** element `B` that is the **next sibling** of element `A`.
+
+```css
+h2 + p {
+  color: green;
+}
+```
+
+> Styles the **first `<p>` immediately after** an `<h2>`.
+
+---
+
+### 4. **General Sibling Combinator (`~`)**
+
+**Syntax**: `A ~ B`
+**Selects** all elements `B` that are **siblings** of `A` and come **after** it in the DOM.
+
+```css
+h2 ~ p {
+  font-style: italic;
+}
+```
+
+> Styles **all `<p>` elements after** an `<h2>` (not just the next one).
+
+---
+
+### ✅ Summary Table
+
+| Combinator  | Selector Example | Description                             |
+| ----------- | ---------------- | --------------------------------------- |
+| ` ` (space) | `A B`            | All descendants of `A`                  |
+| `>`         | `A > B`          | Direct children of `A`                  |
+| `+`         | `A + B`          | First sibling `B` immediately after `A` |
+| `~`         | `A ~ B`          | All siblings `B` after `A`              |
+
+---
+
+### 🧠 Pro Tip
+
+Use combinators carefully to **avoid performance issues**, especially descendant selectors (`A B`) which are more **costly** for the browser to match.
+
+---
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
