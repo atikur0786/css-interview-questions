@@ -41,7 +41,7 @@ Whether you're preparing for your first front-end interview or looking to refres
 | 11  | [What are the different types of CSS?](#11-what-are-the-different-types-of-css)                                                                                    |
 | 12  | [How does inheritance work in CSS?](#12-how-does-inheritance-work-in-css)                                                                                          |
 | 13  | [What are the different combinators in CSS?](#13-what-are-the-different-combinators-in-css)                                                                        |
-| 14  | [What is the difference between visibility: hidden and display: none?](#14-what-is-the-difference-between-visibility-hidden-and-display-none)                      |
+| 14  | [What is the difference between visibility: hidden and display: none in CSS?](#14-what-is-the-difference-between-visibility-hidden-and-display-none-in-css)        |
 | 15  | [What are CSS transitions and animations?](#15-what-are-css-transitions-and-animations)                                                                            |
 | 16  | [How do you center a div horizontally and vertically?](#16-how-do-you-center-a-div-horizontally-and-vertically)                                                    |
 | 17  | [What are the benefits of using CSS variables (custom properties)?](#17-what-are-the-benefits-of-using-css-variables)                                              |
@@ -1383,6 +1383,78 @@ h2 ~ p {
 ### 🧠 Pro Tip
 
 Use combinators carefully to **avoid performance issues**, especially descendant selectors (`A B`) which are more **costly** for the browser to match.
+
+---
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
+
+## 14. What is the Difference Between `visibility: hidden` and `display: none` in CSS?
+
+Both `visibility: hidden` and `display: none` are used to **hide elements**, but they behave very differently:
+
+---
+
+### ✅ `visibility: hidden`
+
+- **Hides** the element, but it **still takes up space** in the layout.
+- The element becomes **invisible**, but the browser **reserves its space** on the page.
+
+```css
+.hidden {
+  visibility: hidden;
+}
+```
+
+#### 🔎 Example:
+
+```html
+<p>This is visible</p>
+<p class="hidden">This is hidden</p>
+<p>This is also visible</p>
+```
+
+> You'll see a blank space where the hidden paragraph would be.
+
+---
+
+### ✅ `display: none`
+
+- Completely **removes the element** from the layout.
+- The element is **not visible** and **does not take up any space**.
+
+```css
+.removed {
+  display: none;
+}
+```
+
+#### 🔎 Example:
+
+```html
+<p>This is visible</p>
+<p class="removed">This is removed</p>
+<p>This is also visible</p>
+```
+
+> There is **no space** where the removed paragraph was—it's like it doesn’t exist.
+
+---
+
+### 📊 Comparison Table
+
+| Property             | Visibility | Space in Layout | Can be Interacted With |
+| -------------------- | ---------- | --------------- | ---------------------- |
+| `visibility: hidden` | ❌ Hidden  | ✅ Yes          | ❌ No                  |
+| `display: none`      | ❌ Hidden  | ❌ No           | ❌ No                  |
+
+---
+
+### 🧠 Use Cases
+
+- Use `visibility: hidden` if you want to **keep layout structure** intact.
+- Use `display: none` when you want to **completely remove** the element from view and layout.
 
 ---
 
