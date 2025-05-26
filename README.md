@@ -1461,3 +1461,94 @@ Both `visibility: hidden` and `display: none` are used to **hide elements**, but
 <div align="right">
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
+
+## 15. What Are CSS Transitions and Animations?
+
+CSS **transitions** and **animations** both add visual effects to elements, but they differ in how and when the effects occur.
+
+---
+
+## 🔄 CSS Transitions
+
+**Transitions** allow property changes in CSS values to occur **smoothly over a duration**, rather than instantly.
+
+### ✅ Syntax:
+
+```css
+selector {
+  transition: property duration timing-function delay;
+}
+```
+
+### 🧪 Example:
+
+```css
+.button {
+  background-color: blue;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.button:hover {
+  background-color: green;
+}
+```
+
+> When you hover over the button, the background color gradually changes from blue to green.
+
+### 🧠 Notes:
+
+- Requires a **trigger** (e.g., `:hover`, `:focus`, `:checked`, or JavaScript class change).
+- Best for simple interactions.
+
+---
+
+## 🌀 CSS Animations
+
+**Animations** define more complex effects that can be **automated** using keyframes. They don't require user interaction to begin.
+
+### ✅ Syntax:
+
+```css
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.box {
+  animation: slideIn 1s ease-in-out forwards;
+}
+```
+
+### 🧠 Notes:
+
+- Use `@keyframes` to define intermediate steps.
+- Can run **automatically**, **repeat**, **pause**, or **alternate**.
+- More flexible and powerful than transitions.
+
+---
+
+### 📊 Comparison Table
+
+| Feature    | Transitions                          | Animations                               |
+| ---------- | ------------------------------------ | ---------------------------------------- |
+| Trigger    | Requires user action or class change | Can run automatically on load            |
+| Keyframes  | ❌ Not required                      | ✅ Required for complex animations       |
+| Complexity | Simple property changes              | Multiple steps and directions possible   |
+| Looping    | ❌ No (without JavaScript)           | ✅ Yes (via `animation-iteration-count`) |
+
+---
+
+### 🎯 When to Use
+
+- Use **transitions** for simple effects like hovers, toggles, or fades.
+- Use **animations** for complex, looping, or staged visual effects like loaders, sliders, or moving elements.
+
+---
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
