@@ -1552,3 +1552,119 @@ selector {
 <div align="right">
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
+
+## 16. How Do You Center a `<div>` Horizontally and Vertically?
+
+There are **several ways** to center a `<div>` horizontally and vertically depending on your layout needs and CSS method. Here's a breakdown of the **most common and reliable methods**:
+
+---
+
+## ✅ 1. **Flexbox (Recommended for Modern Layouts)**
+
+```css
+.parent {
+  display: flex;
+  justify-content: center; /* horizontal */
+  align-items: center; /* vertical */
+  height: 100vh; /* or any height */
+}
+```
+
+```html
+<div class="parent">
+  <div class="child">Centered</div>
+</div>
+```
+
+> **Best for:** Responsive layouts, dynamic content.
+
+---
+
+## ✅ 2. **Grid Layout**
+
+```css
+.parent {
+  display: grid;
+  place-items: center; /* shorthand for align-items and justify-items */
+  height: 100vh;
+}
+```
+
+```html
+<div class="parent">
+  <div class="child">Centered</div>
+</div>
+```
+
+> **Best for:** Clean and modern centering using CSS Grid.
+
+---
+
+## ✅ 3. **Absolute Positioning + Transform**
+
+```css
+.parent {
+  position: relative;
+  height: 100vh;
+}
+
+.child {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+```
+
+> **Best for:** Pixel-perfect centering when parent has a fixed size.
+
+---
+
+## ✅ 4. **Margin Auto (Horizontal Only)**
+
+```css
+.child {
+  width: 200px;
+  margin: 0 auto;
+}
+```
+
+> **Note:** This only **centers horizontally**. To center vertically, you'd need other techniques.
+
+---
+
+## ✅ 5. **Table-Cell (Old-School)**
+
+```css
+.parent {
+  display: table;
+  height: 100vh;
+  width: 100%;
+}
+
+.child {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}
+```
+
+> **Legacy support:** Works even in older browsers like IE8.
+
+---
+
+### 🧠 Summary Table
+
+| Method               | Horizontal | Vertical | Notes                        |
+| -------------------- | ---------- | -------- | ---------------------------- |
+| Flexbox              | ✅         | ✅       | Modern, flexible, responsive |
+| Grid                 | ✅         | ✅       | Clean syntax, powerful       |
+| Absolute + Transform | ✅         | ✅       | Good for fixed-size content  |
+| Margin Auto          | ✅         | ❌       | Only centers horizontally    |
+| Table/Table-cell     | ✅         | ✅       | Works in legacy browsers     |
+
+---
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
