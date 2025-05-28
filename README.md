@@ -44,7 +44,7 @@ Whether you're preparing for your first front-end interview or looking to refres
 | 14  | [What is the difference between visibility: hidden and display: none in CSS?](#14-what-is-the-difference-between-visibility-hidden-and-display-none-in-css)        |
 | 15  | [What are CSS transitions and animations?](#15-what-are-css-transitions-and-animations)                                                                            |
 | 16  | [How do you center a div horizontally and vertically?](#16-how-do-you-center-a-div-horizontally-and-vertically)                                                    |
-| 17  | [What are the benefits of using CSS variables (custom properties)?](#17-what-are-the-benefits-of-using-css-variables)                                              |
+| 17  | [What are the benefits of using CSS variables (custom properties)?](#17-what-are-the-benefits-of-using-css-variables-custom-properties)                            |
 | 18  | [What are the most common browser compatibility issues in CSS?](#18-what-are-the-most-common-browser-compatibility-issues-in-css)                                  |
 | 19  | [What is the difference between min-width, max-width, and width?](#19-what-is-the-difference-between-min-width-max-width-and-width)                                |
 | 20  | [What is specificity hierarchy and how to override styles correctly?](#20-what-is-specificity-hierarchy-and-how-to-override-styles-correctly)                      |
@@ -1662,6 +1662,122 @@ There are **several ways** to center a `<div>` horizontally and vertically depen
 | Absolute + Transform | ✅         | ✅       | Good for fixed-size content  |
 | Margin Auto          | ✅         | ❌       | Only centers horizontally    |
 | Table/Table-cell     | ✅         | ✅       | Works in legacy browsers     |
+
+---
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
+
+## 17. What Are the Benefits of Using CSS Variables (Custom Properties)?
+
+CSS Variables, also known as **custom properties**, are declared using the `--` syntax and accessed with the `var()` function. Example:
+
+```css
+:root {
+  --main-color: #3498db;
+}
+.element {
+  color: var(--main-color);
+}
+```
+
+---
+
+### 🌟 Benefits of Using CSS Variables
+
+#### 1. **Reusability**
+
+Define once, use anywhere.
+
+```css
+--primary-font: "Roboto", sans-serif;
+```
+
+You can apply the same font across components without repeating the value.
+
+---
+
+#### 2. **Easier Maintenance**
+
+Update a single variable to reflect changes across the entire stylesheet.
+
+```css
+:root {
+  --spacing: 1rem;
+}
+```
+
+Change `--spacing` to `1.5rem` and all related paddings/margins update instantly.
+
+---
+
+#### 3. **Dynamic Theming**
+
+You can change variable values at runtime using JavaScript or media queries for **dark mode**, user themes, etc.
+
+```css
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background-color: #000;
+    --text-color: #fff;
+  }
+}
+```
+
+---
+
+#### 4. **Component-Level Scope**
+
+Variables can be scoped to specific elements or components:
+
+```css
+.card {
+  --card-color: #f5f5f5;
+  background: var(--card-color);
+}
+```
+
+This isolates styling logic within components.
+
+---
+
+#### 5. **Works with JavaScript**
+
+You can read and update CSS variables dynamically via JS:
+
+```js
+document.documentElement.style.setProperty("--main-color", "#e74c3c");
+```
+
+---
+
+#### 6. **Reduces Repetition**
+
+You avoid repeating the same values across your CSS, making the code DRY (Don’t Repeat Yourself).
+
+---
+
+### 🚫 CSS Variables vs. Preprocessor Variables (like Sass)
+
+| Feature                    | CSS Variables | Sass/LESS Variables |
+| -------------------------- | ------------- | ------------------- |
+| Runtime capability         | ✅ Yes        | ❌ No               |
+| JavaScript interaction     | ✅ Yes        | ❌ No               |
+| Media query responsiveness | ✅ Yes        | ❌ No               |
+| Requires build tools       | ❌ No         | ✅ Yes              |
+
+---
+
+### 🧠 Summary
+
+CSS variables provide:
+
+- **Consistency**
+- **Maintainability**
+- **Flexibility**
+- **Powerful dynamic theming**
+- **Better developer experience**
 
 ---
 
