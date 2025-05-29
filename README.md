@@ -1784,3 +1784,133 @@ CSS variables provide:
 <div align="right">
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
+
+## 18. What Are the Most Common Browser Compatibility Issues in CSS?
+
+Browser compatibility issues occur when CSS styles behave differently across browsers like Chrome, Firefox, Safari, Edge, or older versions of Internet Explorer. These inconsistencies can lead to unexpected layouts or features not working as intended.
+
+---
+
+### 🧩 Common CSS Compatibility Issues
+
+#### 1. **Unsupported or Partially Supported Features**
+
+Some CSS features are not supported by all browsers or require prefixes.
+
+- ❌ Example: `backdrop-filter`, `scroll-behavior`, `aspect-ratio`
+- ✅ Solution: Use [Can I use](https://caniuse.com/) to check support and provide fallbacks or polyfills.
+
+```css
+.element {
+  backdrop-filter: blur(10px); /* Not supported in all browsers */
+}
+```
+
+---
+
+#### 2. **Vendor Prefixes**
+
+Some CSS properties require browser-specific prefixes.
+
+```css
+.element {
+  -webkit-transform: rotate(45deg); /* Chrome, Safari */
+  -ms-transform: rotate(45deg); /* IE */
+  transform: rotate(45deg); /* Standard */
+}
+```
+
+🛠 Tools like Autoprefixer can automate this process.
+
+---
+
+#### 3. **Flexbox and Grid Compatibility**
+
+- Older browsers may **misinterpret flex or grid layouts**.
+- Different behaviors in IE11 for `min-height`, `flex-shrink`, etc.
+
+✅ Solution: Use modern layout techniques with known fallbacks.
+
+---
+
+#### 4. **Default Styling Differences**
+
+Each browser has different default styles for HTML elements like `<input>`, `<button>`, `<ul>`, etc.
+
+✅ Solution: Use a **CSS reset** or **normalize.css** to reduce inconsistencies.
+
+---
+
+#### 5. **Box Model Differences (in older IE versions)**
+
+IE used a different box model in older versions where `padding` and `border` affected width differently.
+
+✅ Solution: Always set:
+
+```css
+* {
+  box-sizing: border-box;
+}
+```
+
+---
+
+#### 6. **Form Element Styling**
+
+Input types (`range`, `date`, `file`, etc.) are rendered differently across browsers and can be hard to style consistently.
+
+✅ Solution: Apply minimal styling or use JS libraries for consistent UIs.
+
+---
+
+#### 7. **Z-Index Bugs in IE/Edge**
+
+Z-index stacking context behaves unexpectedly in older IE/Edge versions when elements are not positioned correctly.
+
+✅ Solution: Always define a `position` (relative, absolute, etc.) before applying `z-index`.
+
+---
+
+#### 8. **Media Queries & Viewport Units**
+
+- `vh`, `vw` units behave inconsistently on mobile browsers.
+- Media queries may not match perfectly across devices.
+
+✅ Solution: Test on actual devices and use responsive units with caution.
+
+---
+
+### ✅ Tips to Avoid Compatibility Issues
+
+- Use [Autoprefixer](https://autoprefixer.github.io/) or PostCSS.
+- Check [Can I use](https://caniuse.com/) before using cutting-edge CSS.
+- Use feature queries (`@supports`) to provide safe fallbacks:
+
+```css
+@supports (display: grid) {
+  .container {
+    display: grid;
+  }
+}
+```
+
+- Test on real browsers (not just Chrome).
+- Use Normalize.css or CSS Reset to create a consistent baseline.
+
+---
+
+### 🧠 Summary
+
+| Issue Type             | Solution                           |
+| ---------------------- | ---------------------------------- |
+| Unsupported Properties | Check support + provide fallback   |
+| Vendor Prefixes        | Use Autoprefixer                   |
+| Layout Differences     | Use standard practices (Flex/Grid) |
+| Default Browser Styles | Use Normalize or Reset             |
+| Form Styling           | Minimal styling or libraries       |
+
+---
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
