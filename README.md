@@ -46,7 +46,7 @@ Whether you're preparing for your first front-end interview or looking to refres
 | 16  | [How do you center a div horizontally and vertically?](#16-how-do-you-center-a-div-horizontally-and-vertically)                                                    |
 | 17  | [What are the benefits of using CSS variables (custom properties)?](#17-what-are-the-benefits-of-using-css-variables-custom-properties)                            |
 | 18  | [What are the most common browser compatibility issues in CSS?](#18-what-are-the-most-common-browser-compatibility-issues-in-css)                                  |
-| 19  | [What is the difference between min-width, max-width, and width?](#19-what-is-the-difference-between-min-width-max-width-and-width)                                |
+| 19  | [What is the Difference Between `min-width`, `max-width`, and `width` in CSS?](#19-what-is-the-difference-between-min-width-max-width-and-width-in-css)            |
 | 20  | [What is specificity hierarchy and how to override styles correctly?](#20-what-is-specificity-hierarchy-and-how-to-override-styles-correctly)                      |
 
 ---
@@ -1908,6 +1908,106 @@ Z-index stacking context behaves unexpectedly in older IE/Edge versions when ele
 | Layout Differences     | Use standard practices (Flex/Grid) |
 | Default Browser Styles | Use Normalize or Reset             |
 | Form Styling           | Minimal styling or libraries       |
+
+---
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
+
+## 19. What is the Difference Between `min-width`, `max-width`, and `width` in CSS?
+
+These three CSS properties—`width`, `min-width`, and `max-width`—control the **horizontal sizing** of an element, but in different ways. Understanding how they work together is crucial for responsive design.
+
+---
+
+### 🔹 `width`
+
+- Sets an **exact width** for an element.
+- It overrides content size.
+
+```css
+.box {
+  width: 300px;
+}
+```
+
+✅ The element will always be **300px wide**, regardless of screen size or content.
+
+---
+
+### 🔹 `min-width`
+
+- Sets the **minimum** width an element can shrink to.
+- Prevents it from becoming smaller than this value.
+
+```css
+.box {
+  min-width: 200px;
+}
+```
+
+✅ Even if the container is smaller, the element **won’t go below 200px** in width.
+
+---
+
+### 🔹 `max-width`
+
+- Sets the **maximum** width an element can grow to.
+- Prevents it from becoming larger than this value.
+
+```css
+.box {
+  max-width: 600px;
+}
+```
+
+✅ The element **will not exceed 600px**, even if more space is available.
+
+---
+
+### 📊 Comparison Table
+
+| Property    | Function                                  | Common Use Case                                     |
+| ----------- | ----------------------------------------- | --------------------------------------------------- |
+| `width`     | Fixed width                               | For static layouts like cards or sidebars           |
+| `min-width` | Prevents element from shrinking too small | Keeping buttons or inputs readable on small screens |
+| `max-width` | Prevents element from growing too large   | Limiting content width on large monitors            |
+
+---
+
+### 🧠 Example: Using All Three
+
+```css
+.container {
+  width: 100%;
+  min-width: 320px;
+  max-width: 1200px;
+}
+```
+
+✅ This element will:
+
+- Fill the container (`100%`)
+- **Never shrink below** `320px`
+- **Never grow beyond** `1200px`
+
+---
+
+### 🚀 Real-world Tip
+
+Use `max-width` instead of `width` when designing **responsive layouts**:
+
+```css
+img {
+  max-width: 100%;
+  height: auto;
+}
+```
+
+✅ This ensures images **resize properly** on smaller screens.
+
+---
 
 ---
 
