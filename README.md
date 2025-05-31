@@ -2009,6 +2009,89 @@ img {
 
 ---
 
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
+
+## 20. What is Specificity Hierarchy and How to Override Styles Correctly?
+
+**Specificity** is the set of rules browsers use to determine which CSS rule is applied when multiple rules target the same element. The **specificity hierarchy** helps resolve conflicts between competing styles.
+
+---
+
+### 🔹 Specificity Hierarchy (From Lowest to Highest)
+
+| Selector Type                                                                     | Example                           | Specificity Score      |
+| --------------------------------------------------------------------------------- | --------------------------------- | ---------------------- |
+| Universal selector                                                                | `*`                               | 0,0,0                  |
+| Element selector                                                                  | `div`, `p`, `h1`                  | 0,0,1                  |
+| Class, attribute, pseudo-class                                                    | `.btn`, `[type="text"]`, `:hover` | 0,1,0                  |
+| ID selector                                                                       | `#header`                         | 1,0,0                  |
+| Inline styles                                                                     | `style="color: red"`              | 1,0,0,0 (or very high) |
+| `!important` (not part of specificity but overrides all unless also `!important`) | `color: red !important`           | overrides all          |
+
+---
+
+### 🧠 Specificity Calculation Example
+
+```css
+/* Specificity: 0,0,1 (element) */
+p {
+  color: blue;
+}
+
+/* Specificity: 0,1,0 (class) */
+.text {
+  color: green;
+}
+
+/* Specificity: 1,0,0 (ID) */
+#intro {
+  color: red;
+}
+
+/* Inline style: highest priority */
+<p id="intro" class="text" style="color: orange;">Hello</p>
+```
+
+✅ Final rendered color: **orange** (from inline style).
+
+---
+
+### 🔧 How to Override Styles Correctly
+
+1. **Use a more specific selector**
+   If `.card` is being overridden, try `.container .card` (higher specificity).
+
+2. **Avoid using `!important`**, unless absolutely necessary.
+   It makes debugging difficult and is hard to override.
+
+3. **Keep selectors consistent**
+   Use the same style of selectors across your app to avoid unexpected conflicts.
+
+4. **Use CSS layers wisely**
+
+   - External stylesheets → lowest
+   - Internal styles (`<style>`) → medium
+   - Inline styles (`style=""`) → highest (unless using `!important`)
+
+5. **Use browser DevTools**
+   Inspect elements to see what rule is being applied and from where.
+
+---
+
+### 🛠 Tips to Manage Specificity
+
+- Use **BEM naming convention** (`block__element--modifier`) to avoid overly specific selectors.
+- Organize CSS with utility classes or frameworks like Tailwind to avoid specificity wars.
+- Use `:where()` pseudo-class to **apply styles with 0 specificity**.
+
+```css
+:where(.btn) {
+  padding: 8px;
+}
+```
+
 ---
 
 <div align="right">
