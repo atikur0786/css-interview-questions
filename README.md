@@ -26,28 +26,38 @@ Whether you're preparing for your first front-end interview or looking to refres
 
 ## Table of Contents
 
-| No. | Questions                                                                                                                                                          |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| 1   | [What is the difference between classes and IDs in CSS?](#1-what-is-the-difference-between-classes-and-ids-in-css)                                                 |
-| 2   | [What is specificity and how does it work in CSS?](#2-what-is-specificity-and-how-does-it-work-in-css)                                                             |
-| 3   | [What is the Box Model in CSS?](#3-what-is-the-box-model-in-css)                                                                                                   |
-| 4   | [What are pseudo-classes and pseudo-elements in CSS?](#4-what-are-pseudo-classes-and-pseudo-elements-in-css)                                                       |
-| 5   | [How does position work in CSS (static, relative, absolute, fixed, sticky)?](#5-how-does-position-work-in-css)                                                     |
-| 6   | [What is the difference between em, rem, %, px, and vh/vw units?](#6-what-is-the-difference-between-em-rem--px-and-vhvw-units-in-css)                              |
-| 7   | [How does z-index work in CSS?](#7-how-does-z-index-work-in-css)                                                                                                   |
-| 8   | [What is the difference between inline, block, and inline-block elements in CSS?](#8-what-is-the-difference-between-inline-block-and-inline-block-elements-in-css) |
-| 9   | [How do CSS Grid and Flexbox differ? When should you use each?](#9-how-do-css-grid-and-flexbox-differ-when-should-you-use-each)                                    |
-| 10  | [What are media queries and how do you use them?](#10-what-are-media-queries-and-how-do-you-use-them)                                                              |
-| 11  | [What are the different types of CSS?](#11-what-are-the-different-types-of-css)                                                                                    |
-| 12  | [How does inheritance work in CSS?](#12-how-does-inheritance-work-in-css)                                                                                          |
-| 13  | [What are the different combinators in CSS?](#13-what-are-the-different-combinators-in-css)                                                                        |
-| 14  | [What is the difference between visibility: hidden and display: none in CSS?](#14-what-is-the-difference-between-visibility-hidden-and-display-none-in-css)        |
-| 15  | [What are CSS transitions and animations?](#15-what-are-css-transitions-and-animations)                                                                            |
-| 16  | [How do you center a div horizontally and vertically?](#16-how-do-you-center-a-div-horizontally-and-vertically)                                                    |
-| 17  | [What are the benefits of using CSS variables (custom properties)?](#17-what-are-the-benefits-of-using-css-variables-custom-properties)                            |
-| 18  | [What are the most common browser compatibility issues in CSS?](#18-what-are-the-most-common-browser-compatibility-issues-in-css)                                  |
-| 19  | [What is the Difference Between `min-width`, `max-width`, and `width` in CSS?](#19-what-is-the-difference-between-min-width-max-width-and-width-in-css)            |
-| 20  | [What is specificity hierarchy and how to override styles correctly?](#20-what-is-specificity-hierarchy-and-how-to-override-styles-correctly)                      |
+| No. | Questions                                                                                                                                                                                               |
+| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1   | [What is the difference between classes and IDs in CSS?](#1-what-is-the-difference-between-classes-and-ids-in-css)                                                                                      |
+| 2   | [What is specificity and how does it work in CSS?](#2-what-is-specificity-and-how-does-it-work-in-css)                                                                                                  |
+| 3   | [What is the Box Model in CSS?](#3-what-is-the-box-model-in-css)                                                                                                                                        |
+| 4   | [What are pseudo-classes and pseudo-elements in CSS?](#4-what-are-pseudo-classes-and-pseudo-elements-in-css)                                                                                            |
+| 5   | [How does position work in CSS (static, relative, absolute, fixed, sticky)?](#5-how-does-position-work-in-css)                                                                                          |
+| 6   | [What is the difference between em, rem, %, px, and vh/vw units?](#6-what-is-the-difference-between-em-rem--px-and-vhvw-units-in-css)                                                                   |
+| 7   | [How does z-index work in CSS?](#7-how-does-z-index-work-in-css)                                                                                                                                        |
+| 8   | [What is the difference between inline, block, and inline-block elements in CSS?](#8-what-is-the-difference-between-inline-block-and-inline-block-elements-in-css)                                      |
+| 9   | [How do CSS Grid and Flexbox differ? When should you use each?](#9-how-do-css-grid-and-flexbox-differ-when-should-you-use-each)                                                                         |
+| 10  | [What are media queries and how do you use them?](#10-what-are-media-queries-and-how-do-you-use-them)                                                                                                   |
+| 11  | [What are the different types of CSS?](#11-what-are-the-different-types-of-css)                                                                                                                         |
+| 12  | [How does inheritance work in CSS?](#12-how-does-inheritance-work-in-css)                                                                                                                               |
+| 13  | [What are the different combinators in CSS?](#13-what-are-the-different-combinators-in-css)                                                                                                             |
+| 14  | [What is the difference between visibility: hidden and display: none in CSS?](#14-what-is-the-difference-between-visibility-hidden-and-display-none-in-css)                                             |
+| 15  | [What are CSS transitions and animations?](#15-what-are-css-transitions-and-animations)                                                                                                                 |
+| 16  | [How do you center a div horizontally and vertically?](#16-how-do-you-center-a-div-horizontally-and-vertically)                                                                                         |
+| 17  | [What are the benefits of using CSS variables (custom properties)?](#17-what-are-the-benefits-of-using-css-variables-custom-properties)                                                                 |
+| 18  | [What are the most common browser compatibility issues in CSS?](#18-what-are-the-most-common-browser-compatibility-issues-in-css)                                                                       |
+| 19  | [What is the Difference Between `min-width`, `max-width`, and `width` in CSS?](#19-what-is-the-difference-between-min-width-max-width-and-width-in-css)                                                 |
+| 20  | [What is specificity hierarchy and how to override styles correctly?](#20-what-is-specificity-hierarchy-and-how-to-override-styles-correctly)                                                           |
+| 21  | [What is the difference between relative, absolute, and fixed positioning in real-world use cases?](#21-what-is-the-difference-between-relative-absolute-and-fixed-positioning-in-real-world-use-cases) |
+| 22  | [What is the difference between `auto`, `initial`, and `inherit` in CSS?](#22-difference-between-auto-initial-inherit)                                                                                  |
+| 23  | [What are the different ways to apply CSS (external, internal, inline)?](#23-different-ways-to-apply-css)                                                                                               |
+| 24  | [How does the `calc()` function work in CSS?](#24-how-does-the-calc-function-work-in-css)                                                                                                               |
+| 25  | [What are `clamp()`, `min()`, and `max()` functions in CSS and when to use them?](#25-clamp-min-max-functions-css)                                                                                      |
+| 26  | [What is a stacking context in CSS and how is it created?](#26-what-is-stacking-context-css)                                                                                                            |
+| 27  | [How does the `contain` property help with performance in CSS?](#27-css-contain-performance)                                                                                                            |
+| 28  | [What are logical properties in CSS (e.g., `margin-inline-start`)?](#28-logical-properties-in-css)                                                                                                      |
+| 29  | [What is a reflow and repaint in the context of CSS rendering?](#29-reflow-repaint-css)                                                                                                                 |
+| 30  | [What is print-specific styling and how do you create it in CSS?](#30-print-specific-styling-css)                                                                                                       |
 
 ---
 
@@ -2091,6 +2101,83 @@ p {
   padding: 8px;
 }
 ```
+
+---
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
+
+## 21. What is the difference between `relative`, `absolute`, and `fixed` positioning in real-world use cases?
+
+CSS positioning defines how elements are placed in the document. The most commonly used positioning types are `relative`, `absolute`, and `fixed`. Each behaves differently and is useful in specific scenarios.
+
+---
+
+### ✅ **1. `position: relative`**
+
+- The element is positioned **relative to its normal position**.
+- It does **not remove the element** from the normal document flow.
+- **Offsets (`top`, `left`, etc.) shift the element** from where it would have been, but space is still preserved.
+
+**🧠 Real-world use case:**
+You want to move a label or icon slightly up/down or left/right from its default spot **without affecting the layout of other elements**.
+
+```css
+.label {
+  position: relative;
+  top: -10px;
+  left: 5px;
+}
+```
+
+---
+
+### ✅ **2. `position: absolute`**
+
+- The element is removed from the normal document flow.
+- It is positioned **relative to the nearest positioned ancestor** (an ancestor with `position` set to `relative`, `absolute`, or `fixed`).
+- If no such ancestor exists, it positions relative to the `<html>` (viewport).
+
+**🧠 Real-world use case:**
+Creating a dropdown or tooltip that needs to be **placed exactly under a button** regardless of surrounding elements.
+
+```css
+.tooltip {
+  position: absolute;
+  top: 100%;
+  left: 0;
+}
+```
+
+---
+
+### ✅ **3. `position: fixed`**
+
+- The element is removed from the normal flow.
+- It is always positioned **relative to the viewport**, and does **not move when the page is scrolled**.
+
+**🧠 Real-world use case:**
+Creating a **sticky header, back-to-top button**, or floating chat icon that must stay in a fixed location on the screen.
+
+```css
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+```
+
+---
+
+### 🔁 Summary Table
+
+| Position   | Relative To                 | In Flow? | Scrolls with Page? | Common Use Case               |
+| ---------- | --------------------------- | -------- | ------------------ | ----------------------------- |
+| `relative` | Its original position       | ✅ Yes   | ✅ Yes             | Minor offsets (icons, labels) |
+| `absolute` | Nearest positioned ancestor | ❌ No    | ✅ Yes             | Tooltips, dropdowns, modals   |
+| `fixed`    | Viewport                    | ❌ No    | ❌ No              | Sticky headers, chat buttons  |
 
 ---
 
