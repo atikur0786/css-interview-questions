@@ -49,7 +49,7 @@ Whether you're preparing for your first front-end interview or looking to refres
 | 19  | [What is the Difference Between `min-width`, `max-width`, and `width` in CSS?](#19-what-is-the-difference-between-min-width-max-width-and-width-in-css)                                                 |
 | 20  | [What is specificity hierarchy and how to override styles correctly?](#20-what-is-specificity-hierarchy-and-how-to-override-styles-correctly)                                                           |
 | 21  | [What is the difference between relative, absolute, and fixed positioning in real-world use cases?](#21-what-is-the-difference-between-relative-absolute-and-fixed-positioning-in-real-world-use-cases) |
-| 22  | [What is the difference between `auto`, `initial`, and `inherit` in CSS?](#22-difference-between-auto-initial-inherit)                                                                                  |
+| 22  | [What is the difference between `auto`, `initial`, and `inherit` in CSS?](#22-what-is-the-difference-between-auto-initial-and-inherit-in-css)                                                           |
 | 23  | [What are the different ways to apply CSS (external, internal, inline)?](#23-different-ways-to-apply-css)                                                                                               |
 | 24  | [How does the `calc()` function work in CSS?](#24-how-does-the-calc-function-work-in-css)                                                                                                               |
 | 25  | [What are `clamp()`, `min()`, and `max()` functions in CSS and when to use them?](#25-clamp-min-max-functions-css)                                                                                      |
@@ -2178,6 +2178,74 @@ Creating a **sticky header, back-to-top button**, or floating chat icon that mus
 | `relative` | Its original position       | ✅ Yes   | ✅ Yes             | Minor offsets (icons, labels) |
 | `absolute` | Nearest positioned ancestor | ❌ No    | ✅ Yes             | Tooltips, dropdowns, modals   |
 | `fixed`    | Viewport                    | ❌ No    | ❌ No              | Sticky headers, chat buttons  |
+
+---
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
+
+## 22. What is the difference between `auto`, `initial`, and `inherit` in CSS?
+
+These three keywords — `auto`, `initial`, and `inherit` — are commonly used in CSS to **control the value of properties**, especially for layout and inheritance behavior. Here's how they differ:
+
+---
+
+### ✅ **1. `auto`**
+
+- `auto` **sets the property to a default behavior defined by the browser**, but the meaning depends on the property being used.
+- It **does not always mean the same value** — it adapts to context.
+
+**🧠 Common examples:**
+
+```css
+div {
+  width: auto; /* Browser decides width based on content and context */
+  margin: auto; /* Horizontally centers the element if width is set */
+}
+```
+
+---
+
+### ✅ **2. `initial`**
+
+- `initial` **resets the property to its default value** as defined by the CSS specification (not the browser stylesheet).
+- It is **not always the same as `auto`** — depends on the property.
+
+**🧠 Example:**
+
+```css
+p {
+  color: initial; /* Resets color to default (usually black) */
+  font-weight: initial; /* Resets to normal */
+}
+```
+
+---
+
+### ✅ **3. `inherit`**
+
+- `inherit` **forces the element to use the computed value of its parent** for that property.
+- Not all properties inherit by default, so this is useful to explicitly force inheritance.
+
+**🧠 Example:**
+
+```css
+span {
+  color: inherit; /* Takes color from its parent */
+  font-size: inherit; /* Takes font size from its parent */
+}
+```
+
+---
+
+### 🔁 Summary Table
+
+| Keyword   | What It Does                                   | Inherited? | Example Use Case                       |
+| --------- | ---------------------------------------------- | ---------- | -------------------------------------- |
+| `auto`    | Uses browser-defined automatic behavior        | ❌ No      | `margin: auto;` to center a block      |
+| `initial` | Resets to the CSS spec-defined default         | ❌ No      | Resetting styles for consistency       |
+| `inherit` | Forces the property to inherit from the parent | ✅ Yes     | Sharing font styles across nested tags |
 
 ---
 
