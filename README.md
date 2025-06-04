@@ -50,7 +50,7 @@ Whether you're preparing for your first front-end interview or looking to refres
 | 20  | [What is specificity hierarchy and how to override styles correctly?](#20-what-is-specificity-hierarchy-and-how-to-override-styles-correctly)                                                           |
 | 21  | [What is the difference between relative, absolute, and fixed positioning in real-world use cases?](#21-what-is-the-difference-between-relative-absolute-and-fixed-positioning-in-real-world-use-cases) |
 | 22  | [What is the difference between `auto`, `initial`, and `inherit` in CSS?](#22-what-is-the-difference-between-auto-initial-and-inherit-in-css)                                                           |
-| 23  | [What are the different ways to apply CSS (external, internal, inline)?](#23-different-ways-to-apply-css)                                                                                               |
+| 23  | [What are the different ways to apply CSS (external, internal, inline)?](#23-what-are-the-different-ways-to-apply-css-external-internal-inline)                                                         |
 | 24  | [How does the `calc()` function work in CSS?](#24-how-does-the-calc-function-work-in-css)                                                                                                               |
 | 25  | [What are `clamp()`, `min()`, and `max()` functions in CSS and when to use them?](#25-clamp-min-max-functions-css)                                                                                      |
 | 26  | [What is a stacking context in CSS and how is it created?](#26-what-is-stacking-context-css)                                                                                                            |
@@ -2246,6 +2246,92 @@ span {
 | `auto`    | Uses browser-defined automatic behavior        | ❌ No      | `margin: auto;` to center a block      |
 | `initial` | Resets to the CSS spec-defined default         | ❌ No      | Resetting styles for consistency       |
 | `inherit` | Forces the property to inherit from the parent | ✅ Yes     | Sharing font styles across nested tags |
+
+---
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
+
+## 23. What are the different ways to apply CSS (external, internal, inline)?
+
+CSS can be applied to HTML in **three main ways**, each with its use cases and pros/cons:
+
+---
+
+### ✅ 1. **External CSS**
+
+- Defined in a **separate `.css` file**.
+- Linked using a `<link>` tag in the HTML `<head>`.
+
+**🧠 Example:**
+
+```html
+<!-- index.html -->
+<link rel="stylesheet" href="styles.css" />
+
+/* styles.css */ h1 { color: blue; }
+```
+
+**✅ Best for:**
+
+- Large projects
+- Reusability and maintainability
+- Cleaner HTML
+
+---
+
+### ✅ 2. **Internal CSS**
+
+- Written inside a `<style>` tag in the `<head>` of an HTML file.
+
+**🧠 Example:**
+
+```html
+<head>
+  <style>
+    h1 {
+      color: green;
+    }
+  </style>
+</head>
+```
+
+**✅ Best for:**
+
+- Small projects or single-page websites
+- When styles are not reused across pages
+
+---
+
+### ✅ 3. **Inline CSS**
+
+- Added directly to an HTML element using the `style` attribute.
+
+**🧠 Example:**
+
+```html
+<h1 style="color: red;">Hello, World!</h1>
+```
+
+**✅ Best for:**
+
+- Quick testing or overrides
+- Dynamically applied styles (e.g., via JavaScript)
+
+---
+
+### 🔁 Summary Table
+
+| Method   | Location        | Reusability | Maintainability | Use Case                            |
+| -------- | --------------- | ----------- | --------------- | ----------------------------------- |
+| External | Separate `.css` | ✅ High     | ✅ High         | Multi-page sites and large projects |
+| Internal | `<style>` tag   | ❌ Low      | ⚠️ Medium       | Single-page or test projects        |
+| Inline   | `style` attr    | ❌ None     | ❌ Poor         | One-off changes, JS styling         |
+
+---
+
+💡 **Pro Tip:** Prefer **external CSS** for scalability and performance. Use inline styles sparingly, especially when dealing with component libraries or frameworks.
 
 ---
 
