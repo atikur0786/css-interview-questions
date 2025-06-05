@@ -2338,3 +2338,97 @@ CSS can be applied to HTML in **three main ways**, each with its use cases and p
 <div align="right">
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
+
+## 24. How does the `calc()` function work in CSS?
+
+The `calc()` function in CSS allows you to perform **mathematical calculations** directly within your style declarations. This is helpful when you need dynamic sizing based on a mix of different units (like percentages and pixels).
+
+---
+
+### ✅ Syntax
+
+```css
+property: calc(expression);
+```
+
+**Expression** can include:
+
+- Addition (`+`)
+- Subtraction (`-`)
+- Multiplication (`*`)
+- Division (`/`)
+
+---
+
+### 🧠 Examples
+
+#### 1. **Mixing Units**
+
+```css
+width: calc(100% - 60px);
+```
+
+➡ Sets the width to `100% of parent` minus `60px`.
+
+#### 2. **Centering an Element**
+
+```css
+left: calc(50% - 100px);
+```
+
+➡ Positions an element horizontally centered by moving it 50% from the left and pulling it back by half its width.
+
+#### 3. **Font Sizing**
+
+```css
+font-size: calc(1em + 2vw);
+```
+
+➡ Combines `em` and `viewport width` for responsive typography.
+
+---
+
+### ⚠️ Rules & Notes
+
+- Always **include spaces** around operators: `+`, `-`, `*`, `/`
+
+  - ✅ `calc(100% - 20px)`
+  - ❌ `calc(100%-20px)` (will not work)
+
+- `calc()` can be used with **any property that accepts a length**: `width`, `margin`, `padding`, `top`, `font-size`, etc.
+
+---
+
+### 🧩 Real-World Use Case
+
+#### Responsive Layout:
+
+```css
+.container {
+  width: calc(100% - 300px); /* useful when sidebar is 300px */
+}
+```
+
+#### Button with Dynamic Padding:
+
+```css
+button {
+  padding: calc(0.5em + 2px);
+}
+```
+
+---
+
+### 🔍 Summary
+
+| Feature     | Description                               |
+| ----------- | ----------------------------------------- |
+| Flexibility | Mix units like %, px, em, etc.            |
+| Use Cases   | Layout, spacing, positioning, font sizing |
+| Limitations | Needs spaces between operators and values |
+
+---
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
