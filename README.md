@@ -52,7 +52,7 @@ Whether you're preparing for your first front-end interview or looking to refres
 | 22  | [What is the difference between `auto`, `initial`, and `inherit` in CSS?](#22-what-is-the-difference-between-auto-initial-and-inherit-in-css)                                                           |
 | 23  | [What are the different ways to apply CSS (external, internal, inline)?](#23-what-are-the-different-ways-to-apply-css-external-internal-inline)                                                         |
 | 24  | [How does the `calc()` function work in CSS?](#24-how-does-the-calc-function-work-in-css)                                                                                                               |
-| 25  | [What are `clamp()`, `min()`, and `max()` functions in CSS and when to use them?](#25-clamp-min-max-functions-css)                                                                                      |
+| 25  | [What are `clamp()`, `min()`, and `max()` functions in CSS and when to use them?](#25-what-are-clamp-min-and-max-functions-in-css-and-when-to-use-them)                                                 |
 | 26  | [What is a stacking context in CSS and how is it created?](#26-what-is-stacking-context-css)                                                                                                            |
 | 27  | [How does the `contain` property help with performance in CSS?](#27-css-contain-performance)                                                                                                            |
 | 28  | [What are logical properties in CSS (e.g., `margin-inline-start`)?](#28-logical-properties-in-css)                                                                                                      |
@@ -2426,6 +2426,104 @@ button {
 | Flexibility | Mix units like %, px, em, etc.            |
 | Use Cases   | Layout, spacing, positioning, font sizing |
 | Limitations | Needs spaces between operators and values |
+
+---
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
+
+## 25. What are `clamp()`, `min()`, and `max()` functions in CSS and when to use them?
+
+CSS `clamp()`, `min()`, and `max()` are **math functions** that help create **responsive**, **flexible**, and **adaptive** layouts by constraining CSS values within certain limits.
+
+---
+
+### ✅ `clamp(min, preferred, max)`
+
+It returns a **value between a defined minimum and maximum**, based on the preferred (usually dynamic) value.
+
+```css
+font-size: clamp(1rem, 2vw, 2rem);
+```
+
+🟢 This means:
+
+- Minimum: `1rem`
+- Preferred: `2vw` (responsive to viewport width)
+- Maximum: `2rem`
+
+👉 Great for **responsive typography**, **spacing**, and **widths** where you want control over the min and max values.
+
+---
+
+### ✅ `min(val1, val2, ...)`
+
+Returns the **smallest value** among its arguments.
+
+```css
+width: min(50vw, 600px);
+```
+
+🟢 Useful when you want the element to **never exceed** a certain width even on larger screens.
+
+---
+
+### ✅ `max(val1, val2, ...)`
+
+Returns the **largest value** among its arguments.
+
+```css
+height: max(30vh, 200px);
+```
+
+🟢 Ensures that the element is **at least** a certain height, even on smaller screens.
+
+---
+
+### 📘 Comparison Table
+
+| Function  | Returns                      | Use Case Example                   |
+| --------- | ---------------------------- | ---------------------------------- |
+| `clamp()` | A value between min and max  | Responsive font sizes and paddings |
+| `min()`   | The smallest of given values | Capping max widths or heights      |
+| `max()`   | The largest of given values  | Setting minimum dimensions         |
+
+---
+
+### 🧠 Real-World Use Cases
+
+#### ✅ Responsive Font Size with Clamp:
+
+```css
+h1 {
+  font-size: clamp(1.5rem, 4vw, 3rem);
+}
+```
+
+#### ✅ Image Container Width with Min:
+
+```css
+.container {
+  width: min(100%, 800px);
+}
+```
+
+#### ✅ Sticky Header with Max:
+
+```css
+header {
+  height: max(60px, 10vh);
+}
+```
+
+---
+
+### 🧩 Summary
+
+- `clamp()` is best for **fluid but controlled** sizing.
+- `min()` ensures **upper bounds** are not exceeded.
+- `max()` ensures **lower bounds** are always respected.
 
 ---
 
