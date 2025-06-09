@@ -53,7 +53,7 @@ Whether you're preparing for your first front-end interview or looking to refres
 | 23  | [What are the different ways to apply CSS (external, internal, inline)?](#23-what-are-the-different-ways-to-apply-css-external-internal-inline)                                                         |
 | 24  | [How does the `calc()` function work in CSS?](#24-how-does-the-calc-function-work-in-css)                                                                                                               |
 | 25  | [What are `clamp()`, `min()`, and `max()` functions in CSS and when to use them?](#25-what-are-clamp-min-and-max-functions-in-css-and-when-to-use-them)                                                 |
-| 26  | [What is a stacking context in CSS and how is it created?](#26-what-is-stacking-context-css)                                                                                                            |
+| 26  | [What is a stacking context in CSS and how is it created?](#26-what-is-a-stacking-context-in-css-and-how-is-it-created)                                                                                 |
 | 27  | [How does the `contain` property help with performance in CSS?](#27-css-contain-performance)                                                                                                            |
 | 28  | [What are logical properties in CSS (e.g., `margin-inline-start`)?](#28-logical-properties-in-css)                                                                                                      |
 | 29  | [What is a reflow and repaint in the context of CSS rendering?](#29-reflow-repaint-css)                                                                                                                 |
@@ -2524,6 +2524,107 @@ header {
 - `clamp()` is best for **fluid but controlled** sizing.
 - `min()` ensures **upper bounds** are not exceeded.
 - `max()` ensures **lower bounds** are always respected.
+
+---
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
+
+## 26. What is a Stacking Context in CSS and How Is It Created?
+
+A **stacking context** is an **HTML/CSS conceptual layer** that defines how elements are **stacked and layered** on top of each other on the z-axis (i.e., depth).
+
+When multiple elements overlap, **stacking context determines which one appears on top**.
+
+---
+
+### 🧱 How Stacking Context Works
+
+Think of stacking contexts as a **set of isolated z-index universes**. Elements inside one stacking context **can’t escape it** to overlap elements in a parent or sibling context—**no matter their z-index value**.
+
+---
+
+### ✅ How Is a Stacking Context Created?
+
+A new stacking context is created when:
+
+1. **Root element (`<html>`)** – always creates a base stacking context.
+2. An element has a **positioned layout** (`position: relative|absolute|fixed|sticky`) **and a z-index other than `auto`**:
+
+   ```css
+   .box {
+     position: relative;
+     z-index: 1; /* Creates new stacking context */
+   }
+   ```
+
+3. An element has **`opacity < 1`**:
+
+   ```css
+   .transparent {
+     opacity: 0.9; /* New stacking context */
+   }
+   ```
+
+4. An element uses **CSS filters**:
+
+   ```css
+   .blurred {
+     filter: blur(4px); /* New stacking context */
+   }
+   ```
+
+5. An element has a **`transform`, `perspective`, `will-change`, or `mix-blend-mode`**:
+
+   ```css
+   .transformed {
+     transform: scale(1.1); /* New stacking context */
+   }
+   ```
+
+---
+
+### 🧠 Why Stacking Context Matters
+
+- Prevents **unintended z-index issues**.
+- Helps **organize layering** in complex layouts.
+- Essential for creating **modals, tooltips, dropdowns**, etc.
+
+---
+
+### 🧪 Real-World Example
+
+```html
+<div class="parent">
+  <div class="child"></div>
+</div>
+```
+
+```css
+.parent {
+  position: relative;
+  z-index: 1; /* Creates new stacking context */
+}
+
+.child {
+  position: absolute;
+  z-index: 999; /* Confined within `.parent`, not over other parents */
+}
+```
+
+Even though `.child` has `z-index: 999`, it **cannot overlap elements** outside `.parent`'s stacking context.
+
+---
+
+### 🎯 Summary
+
+| Trigger                              | Creates New Stacking Context |
+| ------------------------------------ | ---------------------------- |
+| `z-index` with positioned element    | ✅                           |
+| `opacity` less than 1                | ✅                           |
+| `transform`, `filter`, `perspective` | ✅                           |
+| `will-change`, `mix-blend-mode`      | ✅                           |
 
 ---
 
