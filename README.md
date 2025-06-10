@@ -54,7 +54,7 @@ Whether you're preparing for your first front-end interview or looking to refres
 | 24  | [How does the `calc()` function work in CSS?](#24-how-does-the-calc-function-work-in-css)                                                                                                               |
 | 25  | [What are `clamp()`, `min()`, and `max()` functions in CSS and when to use them?](#25-what-are-clamp-min-and-max-functions-in-css-and-when-to-use-them)                                                 |
 | 26  | [What is a stacking context in CSS and how is it created?](#26-what-is-a-stacking-context-in-css-and-how-is-it-created)                                                                                 |
-| 27  | [How does the `contain` property help with performance in CSS?](#27-css-contain-performance)                                                                                                            |
+| 27  | [How does the `contain` property help with performance in CSS?](#27-how-does-the-contain-property-help-with-performance-in-css)                                                                         |
 | 28  | [What are logical properties in CSS (e.g., `margin-inline-start`)?](#28-logical-properties-in-css)                                                                                                      |
 | 29  | [What is a reflow and repaint in the context of CSS rendering?](#29-reflow-repaint-css)                                                                                                                 |
 | 30  | [What is print-specific styling and how do you create it in CSS?](#30-print-specific-styling-css)                                                                                                       |
@@ -2625,6 +2625,99 @@ Even though `.child` has `z-index: 999`, it **cannot overlap elements** outside 
 | `opacity` less than 1                | ✅                           |
 | `transform`, `filter`, `perspective` | ✅                           |
 | `will-change`, `mix-blend-mode`      | ✅                           |
+
+---
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
+
+## 27. How Does the `contain` Property Help with Performance in CSS?
+
+The CSS `contain` property is used to **instruct the browser to limit the scope of layout, style, and paint operations** to a specific element and its subtree. This makes rendering more **efficient** and boosts **performance**, especially in large or complex web pages.
+
+---
+
+### ✅ What Is `contain`?
+
+`contain` tells the browser:
+
+> “The contents of this element are independent of the rest of the document.”
+
+This allows the browser to **skip unnecessary recalculations** for surrounding elements when changes occur inside the container.
+
+---
+
+### 🔧 Syntax
+
+```css
+.element {
+  contain: layout style paint;
+}
+```
+
+---
+
+### 🧩 Types of Containment
+
+| Value     | Meaning                                                             |
+| --------- | ------------------------------------------------------------------- |
+| `size`    | Element’s size is independent of its contents                       |
+| `layout`  | Element’s layout doesn’t affect or depend on the rest of the page   |
+| `style`   | Styles inside the element don’t affect outside elements             |
+| `paint`   | Contents are visually isolated (like with `overflow`, `clip`, etc.) |
+| `content` | Shortcut for `layout style paint`                                   |
+| `strict`  | Shortcut for `size layout style paint` (strongest containment)      |
+
+---
+
+### 🚀 Performance Benefits
+
+1. **Faster Layout Recalculation**
+   If something inside the container changes, the browser **recalculates layout only for that element**, not the whole page.
+
+2. **Efficient Painting**
+   Isolates paint operations, preventing re-drawing of unrelated content.
+
+3. **Better Style Invalidation**
+   Style changes are restricted within the container, reducing the need for full-page style recalculations.
+
+---
+
+### 🧪 Real-World Example
+
+```css
+.card {
+  contain: content;
+  will-change: transform;
+}
+```
+
+This is great for:
+
+- Grid items
+- Repeating components (cards, list items)
+- Widgets
+- Sidebar modules
+
+---
+
+### ⚠️ Caveats
+
+- Overusing `contain` might **limit dynamic layout behaviors** (e.g., height based on children).
+- Needs testing across various screen sizes and layouts.
+
+---
+
+### 📌 Summary
+
+The `contain` property improves CSS performance by:
+
+- Reducing layout recalculations
+- Scoping styles and paints
+- Optimizing rendering of dynamic interfaces
+
+It’s a **developer hint to the browser** for better performance in complex UIs.
 
 ---
 
