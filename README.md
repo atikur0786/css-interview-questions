@@ -55,7 +55,7 @@ Whether you're preparing for your first front-end interview or looking to refres
 | 25  | [What are `clamp()`, `min()`, and `max()` functions in CSS and when to use them?](#25-what-are-clamp-min-and-max-functions-in-css-and-when-to-use-them)                                                 |
 | 26  | [What is a stacking context in CSS and how is it created?](#26-what-is-a-stacking-context-in-css-and-how-is-it-created)                                                                                 |
 | 27  | [How does the `contain` property help with performance in CSS?](#27-how-does-the-contain-property-help-with-performance-in-css)                                                                         |
-| 28  | [What are logical properties in CSS (e.g., `margin-inline-start`)?](#28-logical-properties-in-css)                                                                                                      |
+| 28  | [What are logical properties in CSS (e.g., `margin-inline-start`)?](#28-what-are-logical-properties-in-css-eg-margin-inline-start)                                                                      |
 | 29  | [What is a reflow and repaint in the context of CSS rendering?](#29-reflow-repaint-css)                                                                                                                 |
 | 30  | [What is print-specific styling and how do you create it in CSS?](#30-print-specific-styling-css)                                                                                                       |
 
@@ -2718,6 +2718,106 @@ The `contain` property improves CSS performance by:
 - Optimizing rendering of dynamic interfaces
 
 It’s a **developer hint to the browser** for better performance in complex UIs.
+
+---
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
+
+## 28. What Are Logical Properties in CSS (e.g., `margin-inline-start`)?
+
+**Logical properties** in CSS are a set of properties that allow you to style elements **independent of writing direction** (like left-to-right or right-to-left languages) and **layout flow** (vertical vs. horizontal). Instead of using physical terms like `left`, `right`, `top`, and `bottom`, they use **logical terms** like `inline-start`, `block-end`, etc.
+
+---
+
+### 🧠 Why Use Logical Properties?
+
+They help create **more flexible**, **internationalized**, and **responsive** layouts by adapting automatically based on:
+
+- **Writing mode** (e.g., `ltr`, `rtl`)
+- **Text direction** (e.g., English vs. Arabic)
+- **Block/inline flow** (e.g., horizontal vs. vertical)
+
+---
+
+### 📘 Common Logical Properties
+
+| Physical Property | Logical Equivalent    |
+| ----------------- | --------------------- |
+| `margin-left`     | `margin-inline-start` |
+| `margin-right`    | `margin-inline-end`   |
+| `padding-top`     | `padding-block-start` |
+| `padding-bottom`  | `padding-block-end`   |
+| `border-left`     | `border-inline-start` |
+| `border-top`      | `border-block-start`  |
+| `width`           | `inline-size`         |
+| `height`          | `block-size`          |
+
+---
+
+### 📐 Visual Mapping
+
+```
+Writing Mode: Horizontal (ltr)
+----------------------------------------
+| block-start                          |
+|    inline-start     [content] inline-end |
+| block-end                            |
+----------------------------------------
+
+Writing Mode: Vertical
+----------------------------------------
+| inline-start                         |
+|    block-start      [content] block-end |
+| inline-end                           |
+----------------------------------------
+```
+
+---
+
+### 🔧 Example
+
+```css
+.card {
+  margin-inline-start: 1rem;
+  padding-block-end: 2rem;
+  border-inline-end: 1px solid #ccc;
+}
+```
+
+This means:
+
+- Margin on the **start of the inline axis** (left in `ltr`, right in `rtl`)
+- Padding on the **end of the block axis** (bottom in horizontal text)
+- Border on the **end of the inline axis**
+
+---
+
+### 🌍 Real-World Use Case
+
+```css
+html[dir="rtl"] .button {
+  margin-inline-start: 0;
+  margin-inline-end: 1rem;
+}
+```
+
+This auto-adjusts for **right-to-left** languages without changing your layout code.
+
+---
+
+### ✅ Benefits
+
+- **Internationalization-ready**
+- **Cleaner code** (less conditionals)
+- **Future-proof** for various writing modes
+
+---
+
+### 📌 Summary
+
+Logical properties in CSS let you define layout **relative to the text flow**, not physical screen direction. Use them for **direction-aware**, **responsive**, and **accessible** designs.
 
 ---
 
