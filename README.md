@@ -56,7 +56,7 @@ Whether you're preparing for your first front-end interview or looking to refres
 | 26  | [What is a stacking context in CSS and how is it created?](#26-what-is-a-stacking-context-in-css-and-how-is-it-created)                                                                                 |
 | 27  | [How does the `contain` property help with performance in CSS?](#27-how-does-the-contain-property-help-with-performance-in-css)                                                                         |
 | 28  | [What are logical properties in CSS (e.g., `margin-inline-start`)?](#28-what-are-logical-properties-in-css-eg-margin-inline-start)                                                                      |
-| 29  | [What is a reflow and repaint in the context of CSS rendering?](#29-reflow-repaint-css)                                                                                                                 |
+| 29  | [What is a reflow and repaint in the context of CSS rendering?](#29-what-is-a-reflow-and-repaint-in-the-context-of-css-rendering)                                                                       |
 | 30  | [What is print-specific styling and how do you create it in CSS?](#30-print-specific-styling-css)                                                                                                       |
 
 ---
@@ -2818,6 +2818,91 @@ This auto-adjusts for **right-to-left** languages without changing your layout c
 ### 📌 Summary
 
 Logical properties in CSS let you define layout **relative to the text flow**, not physical screen direction. Use them for **direction-aware**, **responsive**, and **accessible** designs.
+
+---
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
+
+## 29. What is a Reflow and Repaint in the Context of CSS Rendering?
+
+In the browser rendering process, **reflow** and **repaint** are two key operations that happen when styles or layout of a webpage change. Understanding the difference between them is crucial for writing high-performance CSS.
+
+---
+
+### 🔁 What is Reflow (Layout)?
+
+**Reflow** occurs when the **geometry** (position, size, or layout) of elements on the page changes.
+
+#### 🧱 Triggered By:
+
+- Changing element size (`width`, `height`, `padding`, `border`)
+- Changing layout (`display`, `position`, `top`, `left`, etc.)
+- Adding/removing DOM elements
+- Changing content (e.g., dynamic text insertion)
+
+#### 🧠 What Happens:
+
+- The browser recalculates positions and dimensions for affected elements.
+- This can also affect **parent and child elements** — it’s **expensive**.
+
+---
+
+### 🎨 What is Repaint?
+
+**Repaint** happens when the **visual appearance** (style) of elements changes but **not their layout**.
+
+#### 🖌️ Triggered By:
+
+- `color`, `background-color`
+- `visibility`, `outline`, `box-shadow`
+- `border-color` (but not `border-width`)
+
+#### 🧠 What Happens:
+
+- The browser just redraws the affected pixel areas.
+- It **does not affect layout**.
+
+---
+
+### ⚠️ Performance Impacts
+
+| Operation | Cost     | Description                             |
+| --------- | -------- | --------------------------------------- |
+| Reflow    | High     | Triggers recalculations and may cascade |
+| Repaint   | Moderate | Only redraws parts, faster than reflow  |
+
+---
+
+### 🔥 Worst Case: Forced Reflow + Repaint
+
+Calling properties like `offsetHeight` or `getComputedStyle()` right after changing layout can **force a reflow** before the browser is ready — causing **layout thrashing**.
+
+```js
+el.style.width = "100px";
+console.log(el.offsetHeight); // Forces reflow
+```
+
+---
+
+### ✅ Best Practices
+
+- **Batch DOM reads and writes** separately
+- Use **CSS transforms** and `opacity` for animations (they avoid reflow)
+- Use `will-change` on elements you plan to animate
+- Minimize layout changes in frequently updated code
+
+---
+
+### 📌 Summary
+
+| Term    | Triggers              | Affects                | Cost     |
+| ------- | --------------------- | ---------------------- | -------- |
+| Reflow  | Layout or DOM changes | Geometry & layout      | High     |
+| Repaint | Visual style changes  | Appearance (no layout) | Moderate |
+
+Understanding and optimizing for reflow and repaint helps you write smoother, more performant web pages.
 
 ---
 
