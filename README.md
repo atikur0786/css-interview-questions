@@ -57,7 +57,7 @@ Whether you're preparing for your first front-end interview or looking to refres
 | 27  | [How does the `contain` property help with performance in CSS?](#27-how-does-the-contain-property-help-with-performance-in-css)                                                                         |
 | 28  | [What are logical properties in CSS (e.g., `margin-inline-start`)?](#28-what-are-logical-properties-in-css-eg-margin-inline-start)                                                                      |
 | 29  | [What is a reflow and repaint in the context of CSS rendering?](#29-what-is-a-reflow-and-repaint-in-the-context-of-css-rendering)                                                                       |
-| 30  | [What is print-specific styling and how do you create it in CSS?](#30-print-specific-styling-css)                                                                                                       |
+| 30  | [What is print-specific styling and how do you create it in CSS?](#30-what-is-print-specific-styling-and-how-do-you-create-it-in-css)                                                                   |
 
 ---
 
@@ -2903,6 +2903,115 @@ console.log(el.offsetHeight); // Forces reflow
 | Repaint | Visual style changes  | Appearance (no layout) | Moderate |
 
 Understanding and optimizing for reflow and repaint helps you write smoother, more performant web pages.
+
+---
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
+
+## 30. What is Print-Specific Styling and How Do You Create It in CSS?
+
+**Print-specific styling** refers to customizing the appearance of a webpage when it is printed (or saved as PDF) using CSS. It helps ensure that your content looks clean, readable, and optimized for paper — often very different from screen layout.
+
+---
+
+### 📌 Why Use Print Styles?
+
+- Hide unnecessary elements (e.g., navigation, ads, footers)
+- Ensure legibility with high contrast fonts and larger text
+- Save paper and ink by removing background images/colors
+- Format content for standard page sizes (like A4)
+
+---
+
+### 🛠️ How to Create Print Styles in CSS
+
+You use a **media query** specifically for print:
+
+```css
+@media print {
+  /* CSS rules only applied when printing */
+  body {
+    font-size: 12pt;
+    color: black;
+    background: none;
+  }
+
+  nav,
+  .sidebar,
+  .footer {
+    display: none; /* Hide non-essential elements */
+  }
+
+  article {
+    page-break-before: always; /* Start on a new page */
+  }
+}
+```
+
+---
+
+### 🧾 Common Print-Specific CSS Tips
+
+| Feature             | CSS Used                               | Description                                     |
+| ------------------- | -------------------------------------- | ----------------------------------------------- |
+| Hide elements       | `display: none;`                       | Remove ads, navbars, buttons, etc.              |
+| Adjust layout       | `float`, `width`, `page-break-*`       | Control how content breaks across pages         |
+| Use serif fonts     | `font-family: serif;`                  | Improves print legibility                       |
+| Prevent breaks      | `page-break-inside: avoid;`            | Avoid splitting tables or headings across pages |
+| Avoid color issues  | `color: black; background: none;`      | Save ink and improve contrast                   |
+| Add footers/headers | `@page` rule (limited browser support) | Define margins or custom headers/footers        |
+
+---
+
+### 🧪 Example: Basic Print Style
+
+```css
+@media print {
+  body {
+    font-family: Georgia, serif;
+    line-height: 1.4;
+    margin: 1in;
+  }
+
+  header,
+  nav,
+  footer {
+    display: none;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  h1 {
+    page-break-before: always;
+  }
+}
+```
+
+---
+
+### 🧠 Bonus: Link a Separate Print Stylesheet
+
+You can also create a dedicated stylesheet for printing:
+
+```html
+<link rel="stylesheet" href="print.css" media="print" />
+```
+
+---
+
+### ✅ Summary
+
+- Use `@media print` to apply print-only styles.
+- Hide elements that don’t make sense on paper.
+- Ensure clean, legible layout for print readability.
+- Always test printed output in different browsers.
+
+This ensures your webpages remain useful even when printed or saved as PDF.
 
 ---
 
